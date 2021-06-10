@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const { Client, Message } = require('discord.js');
 const fetch = require('node-fetch').default;
 
+
 module.exports = {
     name: "cats",
     description: "Sends a cute cat image!",
@@ -15,7 +16,7 @@ module.exports = {
         fetch('https://api.snowflakedev.xyz/api/cat', {
 		headers: {
 			// Change this API key pls
-			'Authorization': 'NzU1ODI2OTY4OTAxMDU4Njgy.MTYxNzAxMTk0NTExOQ==.27f79a371be074b6cf7472ee0a75224c',
+			'Authorization': process.env.snowflake_api_key,
 		},
 	})
 		.then(res => res.buffer())
