@@ -23,4 +23,5 @@ Fixed vulnerabilities.
 > 11th June 2021 <br>
  
 Changed names of features which were confusing. <br>
-Deleted dm.js since it isn't allowed by top.gg.
+Deleted dm.js since it isn't allowed by top.gg. <br>
+Made GitHub Pages.
