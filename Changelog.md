@@ -18,4 +18,8 @@ Renamed `av.js` to `avatar.js`, and if `message.author` didn't specify a query, 
 
 > 10th June 2021 <br>
 
-Fixed vulnerabilities,
+Fixed vulnerabilities.
+
+> 11th June 2021 <br>
+ 
+Changed names of features which were confusing.
