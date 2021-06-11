@@ -1,7 +1,7 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "reset",
+  name: "reset-nickname",
   category: "moderation",
   aliases: ['nicknamereset'],
   /**

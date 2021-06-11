@@ -15,3 +15,7 @@ Made a calculator command using `discord-buttons` and `weky` packages.
 > 8th June 2021 <br>
 
 Renamed `av.js` to `avatar.js`, and if `message.author` didn't specify a query, then the bot must return with `message.author`'s avatar instead of "Please mention the user" embed.
+
+> 10th June 2021 <br>
+
+Fixed vulnerabilities,
