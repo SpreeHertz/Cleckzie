@@ -15,7 +15,7 @@ const token = config.discord.token;
 const emotes = config.emojis;
 client.commands = new Collection();
 client.aliases = new Collection();
-
+client.snipes = new Collection();
 
 module.exports = client;
 client.categories = fs.readdirSync("./commands/");
