@@ -24,4 +24,5 @@ Fixed vulnerabilities.
  
 Changed names of features which were confusing. <br>
 Deleted dm.js since it isn't allowed by top.gg. <br>
-Made GitHub Pages.
+Made GitHub Pages. <br>
+Fixed https://dsc.gg/cleckzie's "invalid OAuth URI". (Thanks to <a href="https://github.com/amanxd1"> amanxd1 </a> for reporting it)
