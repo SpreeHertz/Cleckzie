@@ -13,5 +13,5 @@ Please make a new issue by [clicking here](https://github.com/SpreeHertz/Cleckzi
 ## I need help with this. Is there any support server?
 Yes! Click [here](https://discord.gg/KCzWPGJWtk) to get support.
 
-# Thanks to:
+### Thanks to:
 [amanxd1](https://github.com/amanxd1)
