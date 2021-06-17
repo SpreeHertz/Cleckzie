@@ -8,6 +8,7 @@ const ms = require('ms')
 const { mongodb } = require('./config/bot');
 
 require('discord-buttons')(client);
+// test
 const config = require('./config/bot')
 const filters = config.filters;
 const prefix = config.discord.prefix;
