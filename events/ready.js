@@ -32,4 +32,3 @@ client.on('ready', () => {
         index++;
     }, 5000)
 })
-
