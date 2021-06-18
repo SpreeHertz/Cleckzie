@@ -33,4 +33,3 @@ client.on('ready', () => {
     }, 5000)
 })
 
-// hmm
