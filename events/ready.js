@@ -32,7 +32,3 @@ client.on('ready', () => {
         index++;
     }, 5000)
 })
-
-
-// does the webhook work??
-// trying again
