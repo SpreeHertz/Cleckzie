@@ -40,7 +40,7 @@ module.exports = {
         invites: "📨"
 
       };
-      const ignoredCategories = ['botowner', 'medal', 'nsfw']
+      const ignoredCategories = ['dev']
       readdirSync("./commands/").forEach((dir) => {
         
         const editedName = `${dirEmojis[dir]} ${dir.toUpperCase()}`; 
