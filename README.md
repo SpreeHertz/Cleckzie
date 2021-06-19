@@ -5,7 +5,7 @@ An open-source, multi-purpose discord bot, made with JavaScript.
 🎶 Music - `filter`, `seek`, `queue` and more.. <br>
 📊 Leaderboard - `voice-leaderboard`, `voice-time`, and more.. <br>
 📷 Image Generation `amogus`, `blur` and more.. <br>
-... and more.
+... and more categories.
 
 # Support the bot
 You can support the bot by starring, forking and  [adding it to your discord servers](https://dsc.gg/cleckzie).
