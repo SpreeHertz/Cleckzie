@@ -2,7 +2,7 @@
 An open-source, multi-purpose discord bot, made with JavaScript.
 
 
-### Has useful categories like:
+**Has useful categories like:**
 🎶 **Music** - `filter`, `seek`, `queue` and more.. <br>
 📊 **Leaderboard** - `voice-leaderboard`, `voice-time`, and more.. <br>
 📷 **Image Generation** - `amogus`, `blur` and more.. <br>
