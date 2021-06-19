@@ -2,9 +2,13 @@
 An open-source, multi-purpose discord bot, made with JavaScript.
 
 **Has useful categories like:** <br>
-🎶 Music - `filter`, `seek`, `queue` and more.. <br>
-📊 Leaderboard - `voice-leaderboard`, `voice-time`, and more.. <br>
-📷 Image Generation `amogus`, `blur` and more.. <br>
+🎶 **Music** - `filter`, `seek`, `queue` and more.. <br>
+📊 **Leaderboard** - `voice-leaderboard`, `voice-time`, and more.. <br>
+📷 **Image Generation** `amogus`, `blur` and more.. <br>
+🔨 **Moderation** `mute`, `tempmute`, `addrole`, `removerole` and more.. <br>
+✨ **Info** `twitter`, `instagram`, `djs`, `anime` and more.. <br>
+🎁 **Giveaways** `start-giveaway`, `reroll-giveaway`, and more.. <br>
+🛠 **Utility**  `calculator`, `slowmode`, `createChannel`, and more.. <br>
 ... and more categories.
 
 # Support the bot
