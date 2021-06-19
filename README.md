@@ -1,5 +1,10 @@
 # Cleckzie
 An open-source, multi-purpose discord bot, made with JavaScript.
+Has useful categories like:
+🎶 Music - `filter`, `seek`, `queue` and more..
+📊 Leaderboard - `voice-leaderboard`, `voice-time`, and more..
+📷 Image Generation `amogus`, `blur` and more..
+... and more.
 
 # Support the bot
 You can support the bot by starring, forking and  [adding it to your discord servers](https://dsc.gg/cleckzie).
