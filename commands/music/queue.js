@@ -30,10 +30,12 @@ module.exports = {
       return message.channel.send(noMusicCurrentlyPlaying)
   }
       const queueEmbed = new MessageEmbed()
-      .setAuthor(message.guild.name)
+      .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
       .setTitle("Server Queue")
       .addField("Current Track", `${queue.playing.title} | ${queue.playing.author}`)
-      .addField("Tracks", queue.tracks.map((track, i ) => { return `**#${i + 1}** - ${track.title} | ${track.author}(Requested by: ${track.requestedBy.username})`}).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`);
+      .setColor('RANDOM')
+      .addField("Tracks", queue.tracks.map((track, i ) => { return `**#${i + 1}** - ${track.title} | ${track.author}(Requested by: ${track.requestedBy.username})`}).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`)
+      return message.channel.send(queueEmbed)
       
   },
 };

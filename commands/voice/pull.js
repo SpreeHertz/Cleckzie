@@ -39,6 +39,7 @@ module.exports = {
         member.voice.setChannel(message.member.voice.channel);
         const done_ = new MessageEmbed()
         .setDescription("I've pulled the member to your current voice channel.")
+        return message.channel.send(done_)
         
     }
 }
