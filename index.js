@@ -5,9 +5,8 @@ const {Collection, Client, Discord, MessageEmbed} = require('discord.js')
 const fs = require('fs')
 const client = new Client({ disableEveryone: true })
 const ms = require('ms')
-const { mongodb } = require('./config/bot');
-
 require('discord-buttons')(client);
+
 const config = require('./config/bot')
 const filters = config.filters;
 const prefix = config.discord.prefix;
@@ -149,6 +148,11 @@ for (const file of player) {
     const event = require(`./player/${file}`);
     client.player.on(file.split(".")[0], event.bind(null, client));
 };
+
+// Economy
+const mongoCurrency = require('discord-mongo-currency');
+ 
+mongoCurrency.connect(process.env.database);
 
 // Medal
 client.on("message", async (message) => {

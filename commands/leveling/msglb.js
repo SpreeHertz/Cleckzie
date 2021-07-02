@@ -1,5 +1,6 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
 const Levels = require('discord-xp');
+const client = require('../../index');
 
 module.exports = {
     name: 'messages-leaderboard',

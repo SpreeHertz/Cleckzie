@@ -37,7 +37,8 @@ module.exports = {
         fortnite: "🎮",
         leveling: "📊",
         together: "👬",
-        invites: "📨"
+        invites: "📨",
+        economy: "💸"
 
       };
       const ignoredCategories = ['dev']

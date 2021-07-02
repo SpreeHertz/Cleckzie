@@ -25,6 +25,7 @@
     "discord-giveaways": "^4.4.3",
     "discord-levels": "^1.1.0",
     "discord-logs": "^1.9.0",
+    "discord-mongo-currency": "^1.0.4",
     "discord-player": "^4.0.5",
     "discord-speech-recognition": "^1.0.6",
     "discord-together": "^1.1.14",
