@@ -154,57 +154,5 @@ const mongoCurrency = require('discord-mongo-currency');
  
 mongoCurrency.connect(process.env.database);
 
-// Medal
-client.on("message", async (message) => {
-    if (message.guild.id != '732935078870646816') return;
-    if (message.content === 'how to join medal'            ||
-    message.content === 'is medal looking for gfx/vfx'     ||
-    message.content === 'is medal a talent team'           || 
-    message.content === 'how do i join medal'              || 
-    message.content === 'how do I join medal?'             ||
-    message.content === 'I wanna join Medal.'              || 
-    message.content === 'How do I join medal?'             ||
-    message.content === 'Can I join Medal?'                || 
-    message.content === 'is medal looking for investors'     
-    ){
-
-    message.channel.send(`${message.author}`)
-        await message.react('❌')
-        const medal_ = new MessageEmbed()
-        .setTitle("Joining Medal")
-        .setDescription("Medal is an invite only org.\n\nInvite only means that we're gonna be the ones who are going to invite you to join the team.\n\nAlso, please don't DM the roster for joining us.")
-        .setFooter("Thank you.")
-        .setTimestamp()
-        .setColor("BLUE")
-        .setThumbnail(message.guild.iconURL({ dynamic: true, size: 512 }))
-        return message.channel.send(medal_)
-    }
-})
-
-client.on('message', async (message) => {
-
-if (message.content === '<@495589785130500096> pls check dms'    ||    // User ID: Pseudo 
-    message.content === '<@495589785130500096> dms please'       ||    // User ID: Psuedo
-    message.content === '<@495589785130500096> can you come dms' ||    // User ID: Pseudo
-    message.content === '<@495589785130500096> check dms'        ||    // User ID: Pseudo
-    message.content === '<@500566990658994189> pls check dms'    ||    // User ID: Kabir
-    message.content === '<@500566990658994189> dms please'       ||    // User ID: Kabir
-    message.content === '<@500566990658994189> can you come dms' ||    // User ID: Kabir
-    message.content === '<@500566990658994189> check dms'              // User ID: Kabir                               
-      ) {
-          return message.reply("Please do not ping and/or DM the team members to join medal. We're an invite only organisation.")
-      }    
-
-})
-
-client.on('message', async message => {
-    if(message.guild.id !== '846701402855964702') return;
-    if(message.content.includes === 'ratio' || message.content.includes === 'counter' || message.content === 'Ratio' || message.content === 'Counter' || message.content === 'ratio' || message.content === 'counter') {
-        await message.react('❤')
-        await message.react('♻')
-        await message.react('💬')
-    
-    }
-})
 
 client.login(process.env.token);
