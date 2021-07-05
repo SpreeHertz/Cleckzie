@@ -25,4 +25,5 @@ Please make a new issue by [clicking here](https://github.com/SpreeHertz/Cleckzi
 Yes! Click [here](https://discord.gg/KCzWPGJWtk) to get support.
 
 ### Thanks to:
+[MrPerfectShot](https://github.com/mrperfectshot)
 [amanxd1](https://github.com/amanxd1)
