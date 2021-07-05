@@ -70,5 +70,17 @@ client.discordVoice = Voice;
 // Music
 client.player = new Player(client);
 client.filters = client.config.filters;
+client.filters = client.filters;
 
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
+
+for (const file of player) {
+    console.log(`Loading discord-player event ${file}`);
+    const event = require(`./player/${file}`);
+    client.player.on(file.split(".")[0], event.bind(null, client));
+};
+
+// Economy
+const mongoCurrency = require('discord-mongo-currency');
+mongoCurrency.connect(process.env.database);
 client.login(process.env.token);
