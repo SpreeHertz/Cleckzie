@@ -1,7 +1,7 @@
 {
   "name": "cleckzie",
   "version": "1.0.0",
-  "description": "An open-source, multi-purpose discord bot, made with JavaScript.",
+  "description": "A multi-purpose discord bot, coded with JavaScript.",
   "main": "index.js",
   "dependencies": {
     "@discord-player/extractor": "^2.0.2",
@@ -69,18 +69,24 @@
     "yt-search": "^2.8.0",
     "ytdl-core": "^4.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.9"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrPerfectShot/Cleckzie.git"
+    "url": "git+https://github.com/SpreeHertz/CleckziePriv.git"
   },
-  "author": "",
+  "keywords": [
+    "discord"
+  ],
+  "author": "SpreeHertz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MrPerfectShot/Cleckzie/issues"
+    "url": "https://github.com/SpreeHertz/CleckziePriv/issues"
   },
-  "homepage": "https://github.com/MrPerfectShot/Cleckzie#readme"
+  "homepage": "https://github.com/SpreeHertz/CleckziePriv#readme"
 }
