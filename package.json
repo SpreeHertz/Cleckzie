@@ -1,7 +1,7 @@
 {
   "name": "cleckzie",
   "version": "1.0.0",
-  "description": "A multi-purpose discord bot, coded with JavaScript.",
+  "description": "An open-source, multi-purpose discord bot, made with JavaScript.",
   "main": "index.js",
   "dependencies": {
     "@discord-player/extractor": "^2.0.2",
@@ -31,7 +31,7 @@
     "discord-together": "^1.1.14",
     "discord-voice": "^1.0.6",
     "discord-xp": "^1.1.14",
-    "discord.js": "^12.4.1",
+    "discord.js": "^12.5.3",
     "discord.js-search": "^1.0.1",
     "discordjs-voicerole": "^1.0.0",
     "distube": "^2.8.12",
@@ -69,24 +69,18 @@
     "yt-search": "^2.8.0",
     "ytdl-core": "^4.8.3"
   },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.9"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SpreeHertz/CleckziePriv.git"
+    "url": "git+https://github.com/MrPerfectShot/Cleckzie.git"
   },
-  "keywords": [
-    "discord"
-  ],
-  "author": "SpreeHertz",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SpreeHertz/CleckziePriv/issues"
+    "url": "https://github.com/MrPerfectShot/Cleckzie/issues"
   },
-  "homepage": "https://github.com/SpreeHertz/CleckziePriv#readme"
+  "homepage": "https://github.com/MrPerfectShot/Cleckzie#readme"
 }
