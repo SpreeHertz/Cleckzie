@@ -81,7 +81,6 @@ for (const file of player) {
 };
 
 // Economy
-
 mongoCurrency.connect(process.env.database);
 
 client.login(process.env.token);
