@@ -1,5 +1,4 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
-const { filters, emojis, color, footer } = require('../../config/bot');
 
 let begExamples = [
     "The gods have given you",
@@ -16,14 +15,14 @@ module.exports = {
      * @param {Message} message 
      * @param {String[]} args 
      */
-    run: async(client, message, args) => {
+    run: async (client, message, args) => {
         const mongoCurrency = require('discord-mongo-currency');
- 
+
         const randomCoins = Math.floor(Math.random() * 99) + 1; // Random amount of coins.
-        
+
         await mongoCurrency.giveCoins(message.member.id, message.guild.id, randomCoins)
         message.channel.send(`${begExamples[Math.floor(Math.random() * begExamples.length)] + ` ${randomCoins}` + " coins!"}`)
-        
+
 
     }
 }
