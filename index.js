@@ -81,6 +81,7 @@ for (const file of player) {
 };
 
 // Economy
-const mongoCurrency = require('discord-mongo-currency');
+
 mongoCurrency.connect(process.env.database);
+
 client.login(process.env.token);
