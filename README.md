@@ -27,3 +27,4 @@ Yes! Click [here](https://discord.gg/KCzWPGJWtk) to get support.
 ### Thanks to:
 [MrPerfectShot](https://github.com/mrperfectshot) <br>
 [amanxd1](https://github.com/amanxd1)
+Full list of contributors on [CONTRIBUTORS.md](https://github.com/spreehertz/cleckzie)
