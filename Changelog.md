@@ -1,6 +1,6 @@
 # Cleckzie Changelog
 
-###  31st May 2021 <br>
+###  31st May 2021 <br> 
 
 Specified an emoji for the upcoming invite folder/category in `help.js`
 
@@ -29,3 +29,6 @@ Made GitHub Pages. <br>
 ### 16th June 2021
 
 Fixed https://dsc.gg/cleckzie's `invalid OAuth URI`. (Thanks to <a href="https://github.com/amanxd1"> amanxd1 </a> for reporting it)
+
+### 6th July 2021 
+MrPerfectShot is now a collaborator.
