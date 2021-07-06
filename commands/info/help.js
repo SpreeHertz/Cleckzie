@@ -1,14 +1,13 @@
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const prefix = require('../../config/bot').discord.prefix;
 
 module.exports = {
   name: "help",
-  aliases : ['h'],
+  aliases: ['h'],
   description: "Shows all available bot commands!",
   run: async (client, message, args) => {
 
-    
+
     const roleColor =
       message.guild.me.displayHexColor === "#000000"
         ? "#ffffff"
@@ -43,32 +42,32 @@ module.exports = {
       };
       const ignoredCategories = ['dev']
       readdirSync("./commands/").forEach((dir) => {
-        
-        const editedName = `${dirEmojis[dir]} ${dir.toUpperCase()}`; 
+
+        const editedName = `${dirEmojis[dir]} ${dir.toUpperCase()}`;
         if (ignoredCategories.includes(dir)) return;
-        
-        if (dir === 'utils') return; 
+
+        if (dir === 'utils') return;
         const commands = readdirSync(
           `./commands/${dir}/`
-          ).filter((file) => file.endsWith(".js"));
+        ).filter((file) => file.endsWith(".js"));
 
 
         const cmds = commands
-        .filter((command) => {
-          let file = require(`../../commands/${dir}/${command}`);
-
-          return !file.hidden;  
-        })
-        .map((command) => {
+          .filter((command) => {
             let file = require(`../../commands/${dir}/${command}`);
-          
-        
-          if (!file.name) return "No command name.";
 
-          let name = file.name.replace(".js", "");
+            return !file.hidden;
+          })
+          .map((command) => {
+            let file = require(`../../commands/${dir}/${command}`);
 
-          return `\`${name}\``;
-        })
+
+            if (!file.name) return "No command name.";
+
+            let name = file.name.replace(".js", "");
+
+            return `\`${name}\``;
+          })
 
         let data = new Object();
 
@@ -84,9 +83,9 @@ module.exports = {
         .setTitle("📬 Need help? Here are all of my commands:")
         .addFields(categories)
         .setDescription(
-          `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ban\`.`
+          `Use \`${client.config.discord.prefix}help\` followed by a command name to get more additional information on a command. For example: \`${client.config.discord.prefix}help ban\`.`
         )
-        .addField("Links","[GitHub Repository](https://github.com/spreehertz/cleckzie) `|` [Twitter](https://twitter.com/cleckzie) `|` [Invite](https://dsc.gg/cleckzie) `|` [Documentation](https://spreehertz.gitbook.io/cleckzie/)")
+        .addField("Links", "[GitHub Repository](https://github.com/spreehertz/cleckzie) `|` [Twitter](https://twitter.com/cleckzie) `|` [Invite](https://dsc.gg/cleckzie) `|` [Documentation](https://spreehertz.gitbook.io/cleckzie/)")
         .setFooter(
           `Requested by ${message.author.tag}`,
           message.author.displayAvatarURL({ dynamic: true })
@@ -103,14 +102,14 @@ module.exports = {
 
       if (!command) {
         const embed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
+          .setTitle(`Invalid command! Use \`${client.config.discord.prefix}help\` for all of my commands!`)
           .setColor("FF0000");
         return message.channel.send(embed);
       }
 
       const embed = new MessageEmbed()
         .setTitle("Command Details:")
-        .addField("Prefix:", `\`${prefix}\``)
+        .addField("client.config.discord.prefix:", `\`${client.config.discord.prefix}\``)
         .addField(
           "Command:",
           command.name ? `\`${command.name}\`` : "No name for this command."
@@ -124,8 +123,8 @@ module.exports = {
         .addField(
           "Usage:",
           command.usage
-            ? `\`${prefix}${command.name} ${command.usage}\``
-            : `\`${prefix}${command.name}\``
+            ? `\`${client.config.discord.prefix}${command.name} ${command.usage}\``
+            : `\`${client.config.discord.prefix}${command.name}\``
         )
         .addField(
           "Description:",

@@ -1,31 +1,30 @@
 const { Message, MessageEmbed } = require("discord.js")
-const filters = require("../../config/bot").filters;
 
 module.exports = {
     name: 'nowplaying',
     aliases: ['np'],
-   description: 'Shows what is currently playing.',
+    description: 'Shows what is currently playing.',
     run: async (client, message, args) => {
-if (!message.member.voice.channel) {
-    const userNotinVC_ = new MessageEmbed()
-    .setDescription("Please join a voice channel first.")
-    .setColor("#FF0000")
-    return message.channel.send(userNotinVC_)
-    }
-   // Embed if the user isn't in the same voice channel
-    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) {
-        const notInSameVC_ = new MessageEmbed()
-        .setDescription("You're not in the same channel as me.")
-        .setColor("#FF0000")
-        return message.channel.send(notInSameVC_)
-    }
-    // If no music is currently playing
-    if (!client.player.getQueue(message)) { 
-        const noMusicCurrentlyPlaying = new MessageEmbed()
-        .setDescription("No song is currently playing.")
-        .setColor("#FF0000")
-        return message.channel.send(noMusicCurrentlyPlaying)
-    }
+        if (!message.member.voice.channel) {
+            const userNotinVC_ = new MessageEmbed()
+                .setDescription("Please join a voice channel first.")
+                .setColor("#FF0000")
+            return message.channel.send(userNotinVC_)
+        }
+        // Embed if the user isn't in the same voice channel
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) {
+            const notInSameVC_ = new MessageEmbed()
+                .setDescription("You're not in the same channel as me.")
+                .setColor("#FF0000")
+            return message.channel.send(notInSameVC_)
+        }
+        // If no music is currently playing
+        if (!client.player.getQueue(message)) {
+            const noMusicCurrentlyPlaying = new MessageEmbed()
+                .setDescription("No song is currently playing.")
+                .setColor("#FF0000")
+            return message.channel.send(noMusicCurrentlyPlaying)
+        }
 
         const track = client.player.nowPlaying(message);
         const filters = [];

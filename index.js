@@ -16,12 +16,13 @@ client.config = require('./config/bot')
 client.commands = new Collection();
 client.aliases = new Collection();
 client.snipes = new Collection();
-
-
 client.categories = fs.readdirSync("./commands/");
-["command", "event", "player"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-});
+
+// Music
+client.player = new Player(client);
+client.filters = client.config.filters;
+client.filters = client.filters;
+
 
 // MongoDB Credentials
 
@@ -30,9 +31,8 @@ mongoose.connect(process.env.database, {
     useNewUrlParser: true,
 }).then(console.log('Connected to MongoDB.'))
 
-
+//Economy
 mongoCurrency.connect(process.env.database);
-
 
 
 // Giveaways
@@ -67,20 +67,7 @@ client.giveawaysManager.on("giveawayEnded", (giveaway, winners) => {
 const Voice = new DiscordVoice(client, process.env.database)
 client.discordVoice = Voice;
 
-// Music
-client.player = new Player(client);
-client.filters = client.config.filters;
-client.filters = client.filters;
+["command", "player", "event"].forEach(x => require(`./handlers/${x}`)(client));
 
-const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
-
-for (const file of player) {
-    console.log(`Loading discord-player event ${file}`);
-    const event = require(`./player/${file}`);
-    client.player.on(file.split(".")[0], event.bind(null, client));
-};
-
-// Economy
-mongoCurrency.connect(process.env.database);
 
 client.login(process.env.token);

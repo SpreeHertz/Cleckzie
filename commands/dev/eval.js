@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js');
-const { discord, color, emojis, footer } = require('../../config/bot')
 const util = require('util');
 
 module.exports = {
@@ -9,11 +8,11 @@ module.exports = {
     description: 'Runs JS as the Discord bot client. (Bot owner only)',
     run: async (client, message, args) => {
         const roleColor =
-      message.guild.me.displayHexColor === "#000000"
-        ? "#ffffff"
-        : message.guild.me.displayHexColor;
+            message.guild.me.displayHexColor === "#000000"
+                ? "#ffffff"
+                : message.guild.me.displayHexColor;
         let code = args.join(' ');
-        
+
         const embed = new Discord.MessageEmbed();
         if (message.author.id !== '755826968901058682')
             return message.channel.send("Hey! You can't use that.")
@@ -22,7 +21,7 @@ module.exports = {
             return message.reply(
                 new MessageEmbed()
                     .setTitle('Eval Usage')
-                    .setDescription(`Usage: **\`${discord.prefix}eval <code>\`**`)
+                    .setDescription(`Usage: **\`${client.config.discord.prefix}eval <code>\`**`)
                     .setColor(roleColor)
             );
         }
