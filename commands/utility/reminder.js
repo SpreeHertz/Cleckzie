@@ -4,7 +4,7 @@ module.exports = {
     name: 'reminder',
     aliases: ['rem'],
     category: 'Utility',
-    utilisation: `${client.config.discord.prefix}rem [your reason]`,
+    utilisation: `*rem [your reason]`,
 
     /** 
         * @param {Client} client 

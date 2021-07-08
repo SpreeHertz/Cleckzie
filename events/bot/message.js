@@ -2,10 +2,10 @@ const db = require('quick.db')
 const Levels = require("discord-xp");
 const { chatBot } = require("reconlx");
 const Schema = require("../../models/chatbot-channel")
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, Collection } = require('discord.js')
 module.exports = async (client, message) => {
-    if (message.author.client) return;
-    if (!message.guild) return;
+    if (message.author.bot) return
+    if (message.channel.type === 'dm') return
 
     if (db.has(`afk-${message.author.id}+${message.guild.id}`)) {
         const info = db.get(`afk-${message.author.id}+${message.guild.id}`)
@@ -26,8 +26,8 @@ module.exports = async (client, message) => {
                 : message.guild.me.displayHexColor
         const embed = new MessageEmbed()
             .setTitle('Hi, I\'m Cleckzie.')
-            .setDescription(`My prefix is \`${prefix}\` in **${message.guild.name}**. \n
-          Do \`${prefix}help\`to see all my commands.`)
+            .setDescription(`My client.config.discord.prefix is \`${client.config.discord.prefix}\` in **${message.guild.name}**. \n
+          Do \`${client.config.discord.prefix}help\`to see all my commands.`)
             .setColor(roleColor)
         message.channel.send(embed);
     }
@@ -57,13 +57,12 @@ module.exports = async (client, message) => {
         if (message.channel.id !== data.Channel) return;
         chatBot(message, message.content, message.author.id);
     })
-
+    console.log(client.config.discord.prefix)
     // Other 
     const Timeout = new Collection();
-    if (!message.content.startsWith(prefix)) return;
-    if (!message.guild) return;
+    if (!message.content.startsWith(client.config.discord.prefix)) return;
     if (!message.member) message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(client.config.discord.prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length == 0) return;
     let command = client.commands.get(cmd)
