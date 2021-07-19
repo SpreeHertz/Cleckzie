@@ -6,11 +6,19 @@ const ms = require('ms')
 const mongoose = require('mongoose');
 const mongoCurrency = require('discord-mongo-currency');
 const { Collection, Client } = require('discord.js')
-const client = new Client({ disableEveryone: true })
+const client = new Client({
+    intents: [
+        "GUILDS",
+        "GUILD_MEMBERS",
+        "GUILD_BANS",
+        "GUILD_EMOJIS",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_MESSAGES",
+    ],
+});
 const { GiveawaysManager } = require('discord-giveaways');
 const DiscordVoice = require("discord-voice");
 const { Player } = require("discord-player");
-require('discord-buttons')(client);
 
 client.config = require('./config/bot')
 client.commands = new Collection();

@@ -1,4 +1,8 @@
 const {readdirSync} = require('fs');
+const { glob } = require("glob");
+const { promisify } = require("util");
+
+const globPromise = promisify(glob);
 const ascii = require('ascii-table')
 let table = new ascii("Commands");
 table.setHeading('Command', ' Load status');

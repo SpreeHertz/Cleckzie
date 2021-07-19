@@ -5,7 +5,6 @@ let begExamples = [
     "Apaira has given you",
     "Mr.DN has given you",
     "Helda Dik has given you",
-
 ]
 
 module.exports = {

@@ -3,6 +3,7 @@ const Levels = require("discord-xp");
 const { chatBot } = require("reconlx");
 const Schema = require("../../models/chatbot-channel")
 const { MessageEmbed } = require('discord.js')
+
 module.exports = async (client, message) => {
     if (message.author.client) return;
     if (!message.guild) return;
@@ -59,7 +60,8 @@ module.exports = async (client, message) => {
     })
 
     // Other 
-    const Timeout = new Collection();
+   const Timeout  = new Collection();
+
     if (!message.content.startsWith(prefix)) return;
     if (!message.guild) return;
     if (!message.member) message.member = await message.guild.fetchMember(message);
@@ -69,5 +71,24 @@ module.exports = async (client, message) => {
     let command = client.commands.get(cmd)
     if (!command) command = client.commands.get(client.aliases.get(cmd));
     if (command) command.run(client, message, args)
+
+    client.on("messageCreate", async (message) => {
+        if (
+            message.author.bot ||
+            !message.guild ||
+            !message.content.toLowerCase().startsWith(client.config.prefix)
+        )
+            return;
+    
+        const [cmd, ...args] = message.content
+            .slice(client.config.prefix.length)
+            .trim()
+            .split(" ");
+    
+        const command = client.commands.get(cmd.toLowerCase());
+    
+        if (!command) return;
+        await command.run(client, message, args);
+    });
 
 }
