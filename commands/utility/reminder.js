@@ -3,7 +3,8 @@ const ms = require("ms")
 module.exports = {
     name: 'reminder',
     aliases: ['rem'],
-  
+    category: 'Utility',
+    utilisation: `*rem [your reason]`,
 
     /** 
         * @param {Client} client 

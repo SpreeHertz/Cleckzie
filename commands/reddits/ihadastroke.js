@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
     name : 'ihadastroke',
     aliases: ['stroke', 'ihas'],
-    description: "Shows media from the r/ihadastroke subbreddit.",
+    description: "This is not an NSFW command at all! Shows beautiful pictures of the earth.",
 
     run : async(client, message) => {
         got('https://www.reddit.com/r/ihadastroke/random/.json').then(res => {

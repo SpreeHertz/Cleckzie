@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 module.exports = (client) => {
     const player = fs.readdirSync('./events/player').filter(file => file.endsWith('.js'));
     for (const file of player) {
