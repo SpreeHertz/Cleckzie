@@ -26,7 +26,7 @@ module.exports = async (client, message) => {
                 : message.guild.me.displayHexColor
         const embed = new MessageEmbed()
             .setTitle('Hi, I\'m Cleckzie.')
-            .setDescription(`My client.config.discord.prefix is \`${client.config.discord.prefix}\` in **${message.guild.name}**. \n
+            .setDescription(`My prefix is \`${client.config.discord.prefix}\` in **${message.guild.name}**. \n
           Do \`${client.config.discord.prefix}help\`to see all my commands.`)
             .setColor(roleColor)
         message.channel.send(embed);
