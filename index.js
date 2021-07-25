@@ -89,5 +89,3 @@ client.discordVoice = Voice;
 
 
 client.login(process.env.token);
-
-// test commit
