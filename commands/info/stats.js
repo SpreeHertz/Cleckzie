@@ -52,14 +52,13 @@ module.exports = {
                 { name: ':robot: CPU Usage', value: `${usage}`, inline: false },
                 { name: ':robot: CPU Model', value: `${cpuModel}`, inline: false },
                 { name: ':robot: CPU Cores', value: `${cores}`, inline: false },
-                { name: ':radio_button: Voice Channels Connected', value: `${client.voice.connections.size}`, inline: false },
                 { name: `${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} Ping`,
                   value: `${client.ws.ping}ms`, inline: false})
 
             .setTimestamp()
             .setColor("RANDOM")
 
-            message.channel.send(embed)
+            message.channel.send({embeds: [embed]})
     }
         )
         // formateBytes
