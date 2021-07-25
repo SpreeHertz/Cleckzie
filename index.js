@@ -12,8 +12,17 @@ const client = new Client({
         "GUILD_MEMBERS",
         "GUILD_BANS",
         "GUILD_EMOJIS",
-        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_INTEGRATIONS",
+        "GUILD_WEBHOOKS",
+        "GUILD_INVITES",
+        "GUILD_VOICE_STATES",
+        "GUILD_PRESENCES",
         "GUILD_MESSAGES",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_MESSAGE_TYPING",
+        "DIRECT_MESSAGES",
+        "DIRECT_MESSAGE_REACTIONS",
+        "DIRECT_MESSAGE_TYPING",
     ],
 });
 const { GiveawaysManager } = require('discord-giveaways');
@@ -24,6 +33,7 @@ client.config = require('./config/bot')
 client.commands = new Collection();
 client.aliases = new Collection();
 client.snipes = new Collection();
+client.slashCommands = new Collection();
 client.categories = fs.readdirSync("./commands/");
 
 // Music
@@ -79,3 +89,5 @@ client.discordVoice = Voice;
 
 
 client.login(process.env.token);
+
+// test commit
