@@ -3,13 +3,13 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'server-avatar',
     aliases: ['server-av', 'srvr-av', 's-av'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async(client, message, args) => {
-        // Defining the roleColor 
+        // Defining the roleColor
         const roleColor = message.guild.me.displayHexColor === "#000000"
         ? "#ffffff"
         : message.guild.me.displayHexColor;

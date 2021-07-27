@@ -6,10 +6,10 @@ module.exports = {
     category: 'Utility',
     utilisation: `*rem [your reason]`,
 
-    /** 
-        * @param {Client} client 
-        * @param {Message} message 
-        * @param {String[]} args 
+    /**
+        * @param {Client} client
+        * @param {Message} message
+        * @param {String[]} args
         */
     run: async (client, message, args) => {
         let time = args[0]

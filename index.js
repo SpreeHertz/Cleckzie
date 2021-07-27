@@ -99,7 +99,7 @@ client.on('interaction', async (interaction) => {
         interaction.options.array().map((x) => {
             args.push(x.value);
         })
-        
+
         cmd.run(client, interaction, args);
     }
 })

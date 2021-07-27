@@ -3,10 +3,10 @@ const radio = require('../../json/radiostations.json')
 
 module.exports = {
     name: 'radio',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         if (!message.member.voice) {

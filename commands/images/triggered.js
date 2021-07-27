@@ -5,7 +5,7 @@ module.exports = {
     name: "triggered",
     category: "images",
     description: "Makes you triggered.",
-    
+
     /**
      * @param {Client} client
      * @param {Message} message

@@ -3,10 +3,10 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'volume',
     aliases: ['vol'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         // Embed if the user isn't in a voice channel

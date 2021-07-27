@@ -21,7 +21,7 @@ module.exports = {
     }
 
     // try to found the giveaway with prize then with ID
-    let giveaway = 
+    let giveaway =
     // Search with giveaway prize
     client.giveawaysManager.giveaways.find((g) => g.prize === args.join(' ')) ||
     // Search with giveaway ID

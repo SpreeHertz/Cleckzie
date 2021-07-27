@@ -9,10 +9,10 @@ let begExamples = [
 
 module.exports = {
     name: 'beg',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         const mongoCurrency = require('discord-mongo-currency');

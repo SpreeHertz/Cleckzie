@@ -1,4 +1,4 @@
-  
+
 const { MessageEmbed, Message } = require('discord.js');
 
 module.exports = {
@@ -20,9 +20,9 @@ module.exports = {
             return member.user;
         })
         if (membersWithRole > 2048) return message.reply('The list is too long.')
-        if (!membersWithRole) return message.reply('There are no members to dump.') 
-         
-        if (membersWithRole) { 
+        if (!membersWithRole) return message.reply('There are no members to dump.')
+
+        if (membersWithRole) {
         const dumpEmbed = new MessageEmbed()
             .setColor(roleColor)
             .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))

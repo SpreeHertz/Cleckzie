@@ -4,10 +4,10 @@ const mongoCurrency = require('discord-mongo-currency');
 module.exports = {
     name: 'balance',
     aliases: ['bal'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         const member = message.mentions.members.first() || message.member;

@@ -1,7 +1,7 @@
 const { Message } = require('discord.js')
 
 module.exports=  {
-    name : 'unmute', 
+    name : 'unmute',
     /**
      * @param {Message} message
      */

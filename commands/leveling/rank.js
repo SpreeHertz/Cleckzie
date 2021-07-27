@@ -5,10 +5,10 @@ const { color, gradient } = require('canvacord/src/Canvacord');
 
 module.exports = {
     name: 'rank',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async(client, message, args) => {
         // Rank
@@ -29,8 +29,8 @@ module.exports = {
             .setDescription(`:x: Seems like the user has **no XP** so far.`)
             .setColor("#FF0000")
             return message.channel.send(nuser_)
-        } 
-        
+        }
+
         // Rank Card
         const rank = new canvacord.Rank()
     .setAvatar(target.displayAvatarURL({ dynamic: false, format: 'png'}))
@@ -47,6 +47,6 @@ module.exports = {
         const attachment = new MessageAttachment(data, 'rankcard.png')
         message.channel.send(attachment)
     })
-     
+
     }
 }

@@ -23,14 +23,14 @@ module.exports = {
     .setAuthor(message.guild.ownerID == User.user.id ? "Owner" : "User", Avatar)
     .addField("User:", `${User.user.username}#${Dism}`) //1
     .addField("ID:", `${User.id}`) //2
-    .addField("Bot:", `${Bot}`) //3 
-    .addField("Position:", `${Position}`) //4 
+    .addField("Bot:", `${Bot}`) //3
+    .addField("Position:", `${Position}`) //4
     .addField("Manageable:", `${User.manageable ? "Yes" : "No"}`) //5
     .addField("Number of Roles:", `${Roles}`) //6
     .addField("Created:", `${Created}`) // 7
     .addField("Joined:", `${Joined}`) // 8
     .addField("Status:", `${Status}`) // 9
-    
+
     .addField("Avatar URLs", `[webp](${User.user.displayAvatarURL({ dynamic: true, format: 'webp'})}) | [png](${User.user.displayAvatarURL({ dynamic: true, format: 'png'})}) | [jpg](${User.user.displayAvatarURL({ dynamic: true, format: 'jpeg'})}) | [jpeg](${User.user.displayAvatarURL({ dynamic: true, format: 'jpeg'})}) | [gif](${User.user.displayAvatarURL({ dynamic: true, format: 'gif'})})`) //10
     .addField("Using Discord On:", `${Place ? Place.join("\n") == "" ? "Unknown" : Place.join("\n") : "None"}`) //11
     .addField("Activities", `${Activity.length > 1 ? "" : "Activity"}\n${Activity ? Activity.join("\n") == "" ? "None" : Activity.join("\n") : "None"}`) //11

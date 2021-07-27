@@ -10,7 +10,7 @@ module.exports = {
     */
     run: async (client, message, args) => {
         // embed sent if no perms:
-        if (!message.member.permissions.has("MANAGE_CHANNELS")) { 
+        if (!message.member.permissions.has("MANAGE_CHANNELS")) {
             const bien_ = new MessageEmbed()
             .setDescription("You don't have the **Manage Channels** permission in order to run this command.")
             .setColor("#FF0000")
@@ -19,7 +19,7 @@ module.exports = {
 
             const channelNameQuery = args.join(" ");
             // embed sent if no name is specified:
-            if (!channelNameQuery) { 
+            if (!channelNameQuery) {
                 const ncnq_ = new MessageEmbed()
                 .setDescription("Please specify a channel name.")
                 .setColor("#FF0000")

@@ -5,10 +5,10 @@ module.exports = {
     name: 'join-leaderboard',
     aliases: ['join-lb', 'user-join-lb', 'lb-join', 'lb join'],
     category: "server",
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async(client, message, args) => {
         const members = message.guild.members.cache
