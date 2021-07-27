@@ -19,7 +19,7 @@ module.exports = {
                 return message.channel.send(notInSameVC_)
             }
 
-        if (!args[0]) { 
+        if (!args[0]) {
         const indicateTitle = new MessageEmbed()
         .setDescription("Please specify a song name/URL.")
         .setColor("#FF0000")

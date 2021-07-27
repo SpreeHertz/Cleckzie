@@ -1,7 +1,7 @@
 {
     "error": {
-     "usage": "Used when a bot encounters an error.",   
-     "message": "Sorry, an error had occured. Please try again."   
+     "usage": "Used when a bot encounters an error.",
+     "message": "Sorry, an error had occured. Please try again."
     },
    "botPerms": {
        "usage": "Used when the bot doesn't have sufficient permission(s).",
@@ -9,7 +9,7 @@
    },
    "userPerms": {
        "usage": "Used when the user who executed the command doesn't have sufficient permission(s).",
-       "message": "You don't have enough permissions." 
+       "message": "You don't have enough permissions."
    },
    "botOwnerOnly": {
        "usage": "Used when a user who isn't the owner tries to execute an bot owner only command.",

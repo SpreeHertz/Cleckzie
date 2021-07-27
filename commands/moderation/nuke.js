@@ -22,7 +22,7 @@ module.exports = {
             message.channel.delete();
 
             ch.send(`The channel has been nuked! | **Requested by: ${message.author.tag}** | https://tenor.com/view/explosion-explode-clouds-of-smoke-gif-17216934`)
-         
+
         })
     }
-} 
+}

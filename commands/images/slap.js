@@ -5,7 +5,7 @@ module.exports = {
     name: "slap",
     category: "images",
     description: "Image generated command; slaps a person. [We totally didn't copy it from Dank Memer :)]",
-    
+
     /**
      * @param {Client} client
      * @param {Message} message

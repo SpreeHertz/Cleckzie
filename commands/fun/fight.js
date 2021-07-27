@@ -3,10 +3,10 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'fight',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         const oppenent = message.mentions.users.first();

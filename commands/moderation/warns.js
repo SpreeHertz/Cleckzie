@@ -24,7 +24,7 @@ module.exports = {
                 .setTitle(`${user.user.tag}'s warns`)
                 .setDescription(
                     data.content.map(
-                        (w, i ) => 
+                        (w, i ) =>
                         `\`${i + 1}\` | Moderator: ${message.guild.members.cache.get(w.moderator)}\n Reason: ${w.reason}`
                         .setColor("PURPLE")
                         )

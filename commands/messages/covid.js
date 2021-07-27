@@ -7,7 +7,7 @@ module.exports = {
 
     run: async(client, message) => {
         const covidStats = await covid.all()
-        
+
         return message.channel.send(new MessageEmbed()
             .setTitle('😷 COVID-19 Statistics')
             .setColor("BLUE")

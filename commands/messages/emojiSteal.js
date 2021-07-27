@@ -22,5 +22,5 @@ module.exports = {
                  .then((emoji) => message.channel.send(`Added: \`${emoji.url}\``));
             }
         }
-   } 
+   }
 }

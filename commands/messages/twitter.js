@@ -8,10 +8,10 @@ module.exports = {
     description: "Gives information about a Twitter user.",
     usage: "*twitter SpreeHertz",
     aliases: ['twt'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
      run: async (client, message, args) => {
 
@@ -35,7 +35,7 @@ module.exports = {
         .setThumbnail(body.profile_image_url_https.replace('_normal', ''))
         .setImage(body.profile_banner_url)
         .setColor("#1DA1F2")
-        
+
 
         return message.channel.send(embed);
     } catch (error) {

@@ -7,9 +7,9 @@ module.exports = {
     run : async(client, message, args) => {
         /**
          * @param {Message} message
-         */ 
+         */
         if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You do not have permission.')
-        const target = message.mentions.members.first() 
+        const target = message.mentions.members.first()
         if(!target) {
             const embed = new MessageEmbed()
             .setTitle("Here's how to use this command")
@@ -17,10 +17,10 @@ module.exports = {
             .setFooter('Do not literally type out {}.')
             .setColor("GOLD")
             .setAuthor(message.author.displayName, message.author.displayAvatarURL({ dynamic: true }))
-        } 
+        }
 
-        const role = message.mentions.roles.first() 
-        if(!role) {  
+        const role = message.mentions.roles.first()
+        if(!role) {
             const noRoleEmbed = new MessageEmbed()
             .setTitle("Here's how to use this command:")
             .setDescription("`addrole {user} {role}`")
@@ -29,7 +29,7 @@ module.exports = {
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             return message.channel.send(noRoleEmbed)
         }
-        
+
         await target.roles.add(role)
         message.channel.send(`${target.user.username} has obtained ${role} role.`)
     }

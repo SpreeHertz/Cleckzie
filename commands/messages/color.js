@@ -16,7 +16,7 @@ module.exports = {
            return
        }
     } else {
-        color = message.member.displayHexColor 
+        color = message.member.displayHexColor
     }
     try {
         message.channel.startTyping()
@@ -67,4 +67,4 @@ module.exports = {
 }
 
 }
-  
+

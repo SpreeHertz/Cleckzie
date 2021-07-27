@@ -1,11 +1,11 @@
-  
+
 module.exports = {
 	name: 'trivia',
     description: 'Answer trivia questions',
 	run : async(client, message, args) => {
         const discord = require('discord.js')
-const fetch = require("node-fetch"); 
-const atob = require('atob') 
+const fetch = require("node-fetch");
+const atob = require('atob')
 class Game {
     constructor(message, args) { // Defining vars and running the game logic
         this.message = message
@@ -84,9 +84,9 @@ class Game {
             }
             if (this.correct_answer == 3) {
                 this.answer_array = [
-                    'A - ' + atob(this.question.results[0].incorrect_answers[0]),                      
+                    'A - ' + atob(this.question.results[0].incorrect_answers[0]),
                     'B - ' + atob(this.question.results[0].incorrect_answers[1]),
-                    'C - ' + atob(this.question.results[0].correct_answer),                         
+                    'C - ' + atob(this.question.results[0].correct_answer),
                     'D - ' + atob(this.question.results[0].incorrect_answers[2])
                 ]
             }
@@ -95,8 +95,8 @@ class Game {
                     'A - ' + atob(this.question.results[0].incorrect_answers[0]),
                     'B - ' + atob(this.question.results[0].incorrect_answers[1]),
                     'C - ' + atob(this.question.results[0].incorrect_answers[2]),
-                    'D - ' + atob(this.question.results[0].correct_answer)  
-                ]                
+                    'D - ' + atob(this.question.results[0].correct_answer)
+                ]
             }
             this.question_embed = new discord.MessageEmbed()
             .setColor('#0099ff')

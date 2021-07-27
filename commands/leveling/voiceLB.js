@@ -31,7 +31,7 @@ const roleColor =
         : message.guild.me.displayHexColor;
 
 
-const leaderboard = await client.discordVoice.computeLeaderboard(client, rawLeaderboard, true); 
+const leaderboard = await client.discordVoice.computeLeaderboard(client, rawLeaderboard, true);
 let lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nVoice Time: **${e.voiceTime.total, moment.duration(e.voiceTime.total).format(' D [days], H [hours], m [mins]')}**\n`)
 const bienn_ = new MessageEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))

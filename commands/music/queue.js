@@ -23,7 +23,7 @@ module.exports = {
       const queue = client.player.getQueue(message);
 
       // If no music is currently playing
-    if (!client.player.getQueue(message)) { 
+    if (!client.player.getQueue(message)) {
       const noMusicCurrentlyPlaying = new MessageEmbed()
       .setDescription("No song(s) are currently playing.")
       .setColor("#FF0000")
@@ -36,6 +36,6 @@ module.exports = {
       .setColor('RANDOM')
       .addField("Tracks", queue.tracks.map((track, i ) => { return `**#${i + 1}** - ${track.title} | ${track.author}(Requested by: ${track.requestedBy.username})`}).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`)
       return message.channel.send(queueEmbed)
-      
+
   },
 };

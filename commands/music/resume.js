@@ -2,10 +2,10 @@ const { Client, Message, MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'resume',
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         if (!message.member.voice.channel) {

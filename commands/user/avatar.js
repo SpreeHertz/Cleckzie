@@ -5,7 +5,7 @@ const search = require("discord.js-search");
 module.exports = {
     name: 'avatar',
     aliases: ['av'],
-    
+
     /**
      * @param {Client} client
      * @param {Message} message
@@ -29,7 +29,7 @@ module.exports = {
             .setColor('RANDOM')
             .setImage(x.user.displayAvatarURL({ size: 4096, dynamic: true }))
             message.reply({ embed: embed, allowedMentions: { repliedUser: true } });
-            
+
         })
     }
 }

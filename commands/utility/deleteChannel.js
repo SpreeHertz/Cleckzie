@@ -29,12 +29,12 @@ module.exports = {
     if (!message.guild.me.hasPermission("MANAGE_CHANNELS")) {
       mal_.setDescription(
         "I don't have permissions to Manage Channels."
-        
+
       )
       .setColor("#FF0000")
       return message.channel.send(mal_);
     }
-     
+
       if(!message.member.hasPermission("MANAGE_CHANNELS")) {
          const bruh_ = new Discord.MessageEmbed()
          .setDescription("You don't have permissions to Manage Channels in order to run this command.")
@@ -61,7 +61,7 @@ module.exports = {
     }
 
     await channels.forEach(channel => channel.delete());
-        
+
     const listo = new Discord.MessageEmbed()
       .setAuthor(
         message.author.tag,

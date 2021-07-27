@@ -9,7 +9,7 @@ module.exports = {
     return message.channel.send(
       "Please include a user or include a user which isn't you or a bot."
     );
- 
+
 
   const BattleShip = new DiscordBattleShip({
     prefix: "prefix"

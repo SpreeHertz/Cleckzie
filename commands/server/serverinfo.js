@@ -15,7 +15,7 @@ module.exports = {
         message.guild.me.displayHexColor === "#000000"
           ? "#ffffff"
           : message.guild.me.displayHexColor;
-  
+
         const embed = new MessageEmbed()
         .setTimestamp()
         .setTitle("**Server Information**")
@@ -23,7 +23,7 @@ module.exports = {
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
         .addField(`🎫 Server Name:`, message.guild.name, true)
         .addField(`🆔 Server ID`, message.guild.id, true)
-        .addField(`👑 Owner`, message.guild.owner, true)  
+        .addField(`👑 Owner`, message.guild.owner, true)
         .addField(`🌎 Region `, message.guild.region, true)
         .addField(`👥 Members`, message.guild.members.cache.size, true)
         .addField(`🤖 Bots:`, message.guild.members.cache.filter(member => member.user.bot).size, true)
@@ -33,8 +33,8 @@ module.exports = {
         .addField(`🎤 Total Voice Channels:`, message.guild.channels.cache.filter(channel => channel.type === 'voice').size, true)
         .addField(`👔 Total Roles:`, message.guild.roles.cache.size, true)
         .addField("⌚ Created at:", message.guild.createdAt, false)
-        
+
         .setAuthor(`${message.guild.name}`)
-        message.channel.send(embed);  
+        message.channel.send(embed);
     }
 }

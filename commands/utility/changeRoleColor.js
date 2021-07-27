@@ -3,10 +3,10 @@ module.exports = {
     name: 'role-color',
     usage: 'role-color @Owner #ff0000',
     aliases: ['color-role', 'change-role-color', 'rolecolor', 'rlc'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         // Defining
@@ -21,7 +21,7 @@ module.exports = {
             return message.channel.send(noRoleSpecified)
         }
 
-        // Embed sent if user has no permission 
+        // Embed sent if user has no permission
         if (!message.member.permissions.has("MANAGE_ROLES")) {
             const noPermissions = new MessageEmbed()
                 .setDescription(`${client.config.emojis.error} You don't have the following permission: \`Manage Roles\``)
