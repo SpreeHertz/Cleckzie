@@ -5,10 +5,10 @@ module.exports = {
     usage: "`*emojify smile`",
     description: "Converts your normal message into an emoji-filled message.",
 
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async(client, message, args) => {
         if(!args.length) return message.reply('Please specify a text to translate.')

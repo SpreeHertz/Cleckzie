@@ -27,5 +27,5 @@ module.exports = {
         .bulkDelete(parseInt(args[0]) + 1)
         .catch((err) => console.log(err));
         message.channel.send("Successfully deleted " + args[0] + " messages.");
-        
+
     }}

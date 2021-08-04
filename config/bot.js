@@ -1,4 +1,4 @@
-module.exports = {    
+module.exports = {
 // Colors
  color: {
     "success" : "#04FF00",
@@ -12,7 +12,7 @@ module.exports = {
     "footerIcon" : "https://cdn.discordapp.com/attachments/836896823880319016/839510849957920768/unknown.png"
   },
 
-   // Emojis (emotes) 
+   // Emojis (emotes)
    emojis: {
     off: ':x:',
     error: '<a:cleckzie_error:839872717519585280>',
@@ -36,7 +36,7 @@ discord: {
   // Music filters
     filters: [
      '8D',
-     'gate', 
+     'gate',
      'haas',
     'phaser',
     'treble',
@@ -48,9 +48,9 @@ discord: {
     'mcompand',
     'pulsator',
     'subboost',
-    'bassboost', 
+    'bassboost',
     'vaporwave',
-    'nightcore', 
+    'nightcore',
     'normalizer',
     'surrounding'],
 }

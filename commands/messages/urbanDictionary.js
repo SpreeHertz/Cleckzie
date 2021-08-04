@@ -6,7 +6,7 @@ module.exports = {
     aliases: ['dictionary', 'urban-dictionary'],
     category: "messages",
     description: "Gives you a meaning from the Urban Dictionary.",
-    
+
     /**
      * @param {Client} client
      * @param {Message} message

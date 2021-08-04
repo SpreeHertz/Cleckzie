@@ -8,7 +8,7 @@ module.exports = {
     * @param {String[]} args
     */
     run: async (client, message, args) => {
-        // Perms check 
+        // Perms check
         if(!message.member.permissions.has("MANAGE_CHANNELS")) return;
 
         // If no member:
@@ -26,7 +26,7 @@ module.exports = {
             .setColor("RED")
             return message.channel.send(vc_)
         }
-        
+
         // If the user requesting the command is on a VC or not:
         if(!message.member.voice.channel) {
         const nmv_ = new MessageEmbed()
@@ -40,6 +40,6 @@ module.exports = {
         const done_ = new MessageEmbed()
         .setDescription("I've pulled the member to your current voice channel.")
         return message.channel.send(done_)
-        
+
     }
 }

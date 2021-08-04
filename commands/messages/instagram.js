@@ -18,8 +18,8 @@ module.exports = {
         }
 
         const url = `https://instagram.com/${name}/?__a=1`;
-        
-        let res; 
+
+        let res;
 
         try {
             res = await fetch(url).then(url => url.json());

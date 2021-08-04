@@ -29,7 +29,7 @@ module.exports = async (client) => {
 
         index++;
     }, 5000)
-    
+
     await client.discordVoice.start();
 
 }

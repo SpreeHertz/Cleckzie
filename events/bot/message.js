@@ -58,7 +58,7 @@ module.exports = async (client, message) => {
         chatBot(message, message.content, message.author.id);
     })
     console.log(client.config.discord.prefix)
-    // Other 
+    // Other
     const Timeout = new Collection();
     if (!message.content.startsWith(client.config.discord.prefix)) return;
     if (!message.member) message.member = await message.guild.fetchMember(message);

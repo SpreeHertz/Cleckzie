@@ -1,9 +1,9 @@
-# Making a Code Snippet 
+# Making a Code Snippet
 
 Click on `File` above VSCode<br>![image](https://user-images.githubusercontent.com/48062454/117412734-bf70d300-af32-11eb-955d-2ad62a9c126f.png) <br> <br>
 
 Click on `Preferences` <br> ![image](https://user-images.githubusercontent.com/48062454/117412803-d4e5fd00-af32-11eb-9da5-585c03c22bc5.png) <br> <br>
- 
+
 Click on `User Snippets` <br> ![image](https://user-images.githubusercontent.com/48062454/117413125-34440d00-af33-11eb-8ed3-e50c2e89ff02.png)
 <br> <br>
 

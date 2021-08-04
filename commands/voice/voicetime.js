@@ -19,11 +19,11 @@ module.exports = {
       message.guild.me.displayHexColor === "#000000"
         ? "#ffffff"
         : message.guild.me.displayHexColor;
-       
+
         const target = message.mentions.users.first() || message.author;
-        
-        
-        
+
+
+
 const user = await client.discordVoice.fetch(target.id, message.guild.id); // Selects the target from the database.
 
 if (!user) {
@@ -32,7 +32,7 @@ if (!user) {
     .setColor("#FF0000")
     return message.channel.send(nuser_)
 
-} 
+}
 
 const bien = new MessageEmbed()
 .setDescription(`${target.tag} currently has **${user.data.voiceTime.total, moment.duration(user.data.voiceTime.total).format(' D [days], H [hours], m [mins]')}** of total voice time.`)

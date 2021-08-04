@@ -4,10 +4,10 @@ module.exports = {
     name: 'youtube-together',
     aliases: ['ytt', 'yt-start'],
     description: "Watch YouTube with your friends, on discord!",
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         client.discordTogether = new DiscordTogether(client);

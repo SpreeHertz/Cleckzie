@@ -6,17 +6,17 @@ let mdur = require('moment-duration-format'),
     ms = require('ms'),
     moment = require('moment')
 
-// Command    
+// Command
 module.exports = {
     name: 'stats',
     aliases: ['uptime'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async(client, message, args) => {
-        // Defining the duration 
+        // Defining the duration
         const duration = moment.duration(client.uptime).format(' D [days], H [hours], m [mins], s [secs]');
         cpuStat.usagePercent(function (error, percent, seconds) {
             // Error handler

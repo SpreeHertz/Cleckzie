@@ -5,10 +5,10 @@ const client = require('../../index');
 module.exports = {
     name: 'messages-leaderboard',
     aliases: ['message-lb', 'msgslb', 'msgs-lb', 'leaderboard-messages', 'lb-messages'],
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    /**
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
     run: async (client, message, args) => {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);

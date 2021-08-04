@@ -4,7 +4,7 @@ module.exports = {
     name : 'youngpeopleyoutube',
     aliases: ['ypy'],
 
-    
+
     run : async(client, message) => {
         got('https://www.reddit.com/r/youngpeopleyoutube/random/.json').then(res => {
             let content = JSON.parse(res.body)

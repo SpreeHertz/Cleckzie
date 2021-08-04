@@ -33,7 +33,7 @@ module.exports = {
                 .setColor(0xFF0000)
                 .setTitle(`${message.author.username} hugged themself.. (weirdo)`)
                 .setImage('https://media3.giphy.com/media/ArLxZ4PebH2Ug/giphy.gif')
-                
+
                 message.channel.send(embed)
             return;
             let memberToFind = message.mentions.members.first();
@@ -44,5 +44,5 @@ module.exports = {
                 message.channel.send(embed)
                 return;
         }
-        }    
-}        
+        }
+}
