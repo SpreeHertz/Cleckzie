@@ -3,9 +3,9 @@ const headingStats = chalk.hex('#a8f9ff'); // Sky Blue
 const otherStats = chalk.hex('#fff8a8'); // Yellow
 const functional = chalk.hex('#a8ffb2') // Light Green
 
-// Console log part
 module.exports = async (client) => {
-    console.log(headingStats(`🤖 Cleckzie Stats 🤖\n💬 Channels: ${client.channels.cache.size} channels\n🕺 Users: ${client.users.cache.size} users\n💻 Servers: ${client.guilds.cache.size} servers\n\n Cleckzie is functional. ✅`))
+    console.log('Cleckzie is ready.')
+
 
     // Statuses part
     const arrayOfStatus = [
@@ -31,4 +31,6 @@ module.exports = async (client) => {
     }, 5000)
     
     await client.discordVoice.start();
+
 }
+

@@ -5,25 +5,13 @@ const fs = require('fs')
 const ms = require('ms')
 const mongoose = require('mongoose');
 const mongoCurrency = require('discord-mongo-currency');
+const { glob } = require('glob');
+const { promisify } = require('util');
+
+const globPromise = promisify(glob);
 const { Collection, Client } = require('discord.js')
-const client = new Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MEMBERS",
-        "GUILD_BANS",
-        "GUILD_EMOJIS",
-        "GUILD_INTEGRATIONS",
-        "GUILD_WEBHOOKS",
-        "GUILD_INVITES",
-        "GUILD_VOICE_STATES",
-        "GUILD_PRESENCES",
-        "GUILD_MESSAGES",
-        "GUILD_MESSAGE_REACTIONS",
-        "GUILD_MESSAGE_TYPING",
-        "DIRECT_MESSAGES",
-        "DIRECT_MESSAGE_REACTIONS",
-        "DIRECT_MESSAGE_TYPING",
-    ],
+const client = new Client({ 
+    intents: 32767, 
 });
 const { GiveawaysManager } = require('discord-giveaways');
 const DiscordVoice = require("discord-voice");
@@ -87,21 +75,65 @@ client.discordVoice = Voice;
 
 ["command", "player", "event"].forEach(x => require(`./handlers/${x}`)(client));
 
+client.on("messageCreate", async (message) => {
+    if (
+        message.author.bot ||
+        !message.guild ||
+        !message.content.toLowerCase().startsWith(client.config.prefix)
+    )
+        return;
 
-client.on('interaction', async (interaction) => {
-    if(interaction.isCommand()) {
-        await interaction.defer().catch(() => {});
+    const [cmd, ...args] = message.content
+        .slice(client.config.prefix.length)
+        .trim()
+        .split(" ");
+
+    const command = client.commands.get(cmd.toLowerCase());
+
+    if (!command) return;
+    await command.run(client, message, args);
+});client.on("messageCreate", async (message) => {
+    if (
+        message.author.bot ||
+        !message.guild ||
+        !message.content.toLowerCase().startsWith(client.config.prefix)
+    )
+        return;
+
+    const [cmd, ...args] = message.content
+        .slice(client.config.prefix.length)
+        .trim()
+        .split(" ");
+
+    const command = client.commands.get(cmd.toLowerCase());
+
+    if (!command) return;
+    await command.run(client, message, args);
+});
+
+client.on("interactionCreate", async (interaction) => {
+    // Slash Command Handling
+    if (interaction.isCommand()) {
+        await interaction.defer({ ephemeral: false }).catch(() => {});
 
         const cmd = client.slashCommands.get(interaction.commandName);
-        if(!cmd) return interaction.followUp({ contents: 'An error has occured'});
+        if (!cmd)
+            return interaction.followUp({ content: "An error has occured " });
 
         const args = [];
-        interaction.options.array().map((x) => {
-            args.push(x.value);
-        })
-        
+
+        for (let option of interaction.options.data) {
+            if (option.type === "SUB_COMMAND") {
+                if (option.name) args.push(option.name);
+                option.options?.forEach((x) => {
+                    if (x.value) args.push(x.value);
+                });
+            } else if (option.value) args.push(option.value);
+        }
+
         cmd.run(client, interaction, args);
     }
-})
+});
+
 
 client.login(process.env.token);
