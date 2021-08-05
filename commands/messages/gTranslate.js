@@ -21,7 +21,7 @@ module.exports = {
     .setDescription(translated.text)
     .setColor("RANDOM")
     .setTimestamp()
-    message.channel.send(embed);
+    message.channel.send({embeds: [embed]});
 
 
 

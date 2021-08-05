@@ -30,8 +30,7 @@ module.exports = {
 
              const [answer] = list;
 
-             message.channel.send(
-                 new MessageEmbed()
+             const embed = new MessageEmbed()
                  .setTitle(answer.word)
                  .setURL(answer.permalink)
                  .setColor("RANDOM")
@@ -39,8 +38,8 @@ module.exports = {
                  .addField("Example", trim(answer.example))
                  .addField(
                      "Ratings", `${answer.thumbs_up} 👍 || ${answer.thumbs_down} 👎`)
-
-             )
+                message.channel.send({embeds: [embed]})
+             
 
      }
 

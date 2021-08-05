@@ -89,7 +89,7 @@ module.exports = {
       .setColor("RANDOM")
       .setFooter(`Found ${discrims.length} users`, client.user.displayAvatarURL())
 
-      message.channel.send(embed);
+      message.channel.send({embeds: [embed]});
     })
   .catch(e => {
          message.channel.send(`Error, try again later`)

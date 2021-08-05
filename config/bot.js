@@ -26,6 +26,10 @@ module.exports = {
     youtube: '<:cleckzie_youtube:841345465751568407>',
 },
 
+devs: {
+  userid: "755826968901058682" // Put your user ID here. In my case, I put my own. This is for using developer-only commands.
+},
+
 // Discord Prefix and Other
 discord: {
   prefix: '*',

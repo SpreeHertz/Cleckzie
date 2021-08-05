@@ -8,7 +8,7 @@ module.exports = {
     run: async(client, message) => {
         const covidStats = await covid.all()
 
-        return message.channel.send(new MessageEmbed()
+        const COVID = new MessageEmbed()
             .setTitle('😷 COVID-19 Statistics')
             .setColor("BLUE")
             .setThumbnail("https://cdn.discordapp.com/attachments/831902156482936853/832267878581534770/Coronavirus-CDC-645x645.png")
@@ -24,6 +24,6 @@ module.exports = {
                 { name: `🦠 In Critical Condition`, value: covidStats.critical.toLocaleString(), inline: true},
                 { name: `🦠 Tested`, value: covidStats.tests.toLocaleString(), inline: true}
             )
-        )
+        return message.channel.send({embeds: [embed]})
     }
 }

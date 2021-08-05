@@ -30,7 +30,7 @@ module.exports = {
         .addField('Humidity', `${current.humidity}%`, true)
 
 
-        message.channel.send(weatherinfo)
+        message.channel.send({embeds: [weatherinfo]})
         })
     }
 }

@@ -17,6 +17,6 @@ module.exports = {
         .setColor("RANDOM")
         await message.delete()
 
-    message.channel.send(sayEmbed)
+    message.channel.send({embeds: [embed]})
   }
 };

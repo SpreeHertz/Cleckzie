@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         // If the member doesn't have enough permissions
     if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Giveaways")){
-        return message.channel.send(':x: You need to have the manage messages permissions to reroll giveaways.');
+        return message.channel.send(':x: You need to have the **Manage Members** permission to reroll giveaways.');
     }
 
     // If no message ID or giveaway name is specified

@@ -1,6 +1,6 @@
 const { Client, Message, MessageEmbed } = require('discord.js');
 const child = require("child_process");
-
+const devID = require('../../config/bot').devs;  
 module.exports = {
     name: "terminal",
     description: "Interacts with the bot. Only the bot owner is allowed to use this command.",
@@ -12,7 +12,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        if(message.author.id !== '755826968901058682') return;
+        if(message.author.id !== devID) return;
 
         const command = args.join(" ");
         if(!command) return message.reply('Please specify a command to execute.')

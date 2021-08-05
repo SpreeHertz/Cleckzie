@@ -29,7 +29,7 @@ module.exports = {
         .setColor("FF0000")
         .setTimestamp()
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 
 };

@@ -66,7 +66,7 @@ module.exports = {
             if (TimeStamp.first().content == 'cancel') return message.channel.send('Embed Generator Cancelled.')
             if (TimeStamp.first().content !== 'yes') embed.setTimestamp();
 
-            message.channel.send(embed)
+            message.channel.send({embeds: [embed]})
         } catch (error) {
             console.error(error);
         }

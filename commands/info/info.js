@@ -12,6 +12,6 @@ module.exports = {
         .addField("Language", "discord.js")
         .setFooter("Feel free to send suggestions or report bugs in my Discord/Twitter.")
         .setColor("#FFAAAA")
-       message.channel.send(embed)
+       message.channel.send({embeds: [embed]})
 
 }}

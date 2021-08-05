@@ -27,7 +27,7 @@ module.exports = {
             .setFooter('Do not literally type out {}.')
             .setColor("GOLD")
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            return message.channel.send(noRoleEmbed)
+            return message.channel.send({embeds: [noRoleEmbed]})
         }
 
         await target.roles.add(role)

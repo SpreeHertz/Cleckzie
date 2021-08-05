@@ -58,7 +58,7 @@ module.exports = {
     .setImage('attachment://color.jpg')
     .attachFiles(rightpic)
     .setThumbnail('attachment://wea.jpg')
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
 } catch {
     message.channel.send('Oops something happened!')
 } finally {

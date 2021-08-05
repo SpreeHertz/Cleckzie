@@ -55,6 +55,6 @@ module.exports = {
       .setThumbnail(anime.posterImage.original)
       .setTimestamp();
 
-    message.channel.send(embed);
+    message.channel.send({embeds: [embed]});
   },
 };

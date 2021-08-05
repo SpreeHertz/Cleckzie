@@ -33,7 +33,7 @@ module.exports = {
             .addField('Question', question)
             .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
             .setColor('RANDOM');
-        message.reply({ embed: embed, allowedMentions: { repliedUser: false } });
+        message.reply({embeds: [embed]});
 
     }
 

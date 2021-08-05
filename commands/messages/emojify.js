@@ -39,6 +39,6 @@ module.exports = {
             return letter;
         }).join('');
 
-        message.channel.send(text)
+        message.channel.send({embeds: [embed]})
     }
 }

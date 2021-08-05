@@ -28,7 +28,7 @@ module.exports = {
             const nuser_ = new MessageEmbed()
             .setDescription(`:x: Seems like the user has **no XP** so far.`)
             .setColor("#FF0000")
-            return message.channel.send(nuser_)
+            return message.channel.send({embeds: [nuser_]})
         }
 
         // Rank Card

@@ -22,7 +22,7 @@ if (rawLeaderboard.length < 1) {
     const noOne_ = new MessageEmbed()
     .setDescription("No one's in leaderboard yet.")
     .setColor("#FF0000")
-    return message.channel.send(noOne_)
+    return message.channel.send({embeds: [noOne_]})
 }
 
 const roleColor =
@@ -40,7 +40,7 @@ const bienn_ = new MessageEmbed()
 .setAuthor(message.guild.name)
 .setTimestamp()
 .setColor(roleColor)
-message.channel.send(bienn_)
+message.channel.send({embeds: [bienn_]})
 
     }
 }

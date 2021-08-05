@@ -18,6 +18,6 @@ module.exports = {
       .setImage(`https://api.cool-img-api.ml/achievement?text=${sentence}`)
       .setColor('RANDOM')
       .setFooter(' ');
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
   }
-}
+};

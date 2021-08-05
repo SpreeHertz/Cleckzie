@@ -18,7 +18,7 @@ module.exports = {
             const noOne_ = new MessageEmbed()
                 .setDescription("No one's in leaderboard yet.")
                 .setColor("#FF0000")
-            return message.channel.send(noOne_)
+            return message.channel.send({embeds: [noOne_]})
         }
 
         // roleColor
@@ -37,7 +37,7 @@ module.exports = {
             .setTitle("Messages Leaderboard")
             .setDescription(lb, lb.join("\n\n"))
             .setColor(roleColor)
-        message.channel.send(bienO_)
+        message.channel.send({embeds: [bienO_]})
 
     }
 }

@@ -11,7 +11,7 @@ module.exports = {
     * @param {String[]} args
     */
     run: async (client, message, args) => {
-        const member = message.mentions.members.first() || message.member;
+    const member = message.mentions.members.first() || message.member;
 	const canvas = Canvas.createCanvas(867, 892);
 	const ctx = canvas.getContext('2d');
 	const background = await Canvas.loadImage('https://i.imgur.com/OopLtL2.jpeg');

@@ -37,7 +37,7 @@ module.exports = {
         .setColor("#1DA1F2")
 
 
-        return message.channel.send(embed);
+        return message.channel.send({embeds: [embed]});
     } catch (error) {
         if (error.status === 403) return message.channel.send("This user's account is private, or closed their account.");
         else if(error.status === 404) return message.channel.send(":x: Error 404: User not found.");

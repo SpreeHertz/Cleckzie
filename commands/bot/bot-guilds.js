@@ -17,12 +17,12 @@ module.exports = {
            return `${index+1}) ${guild.name}: ${guild.memberCount} members`
         }).join('\n')
 
-        message.channel.send(
-            new MessageEmbed()
+       
+            const embed = new MessageEmbed()
             .setTitle("Cleckzie's top Guilds")
             .setThumbnail("https://cdn.discordapp.com/avatars/790269534141284454/b15a9f7480d7a59380e82f3467fe84fa.webp?size=4096")
             .setColor("RANDOM")
             .setDescription(description)
-        )
+          message.channel.send({embeds: [embed]})
     }
 }

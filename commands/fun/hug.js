@@ -34,14 +34,14 @@ module.exports = {
                 .setTitle(`${message.author.username} hugged themself.. (weirdo)`)
                 .setImage('https://media3.giphy.com/media/ArLxZ4PebH2Ug/giphy.gif')
 
-                message.channel.send(embed)
+                message.channel.send({embeds: [embed]})
             return;
             let memberToFind = message.mentions.members.first();
                  new Discord.MessageEmbed()
                     .setColor(0xFF0000)
                     .setTitle(`${message.author.username} gave ${message.mentions.members.first()} a hug! How sweet!`)
                     .setImage(hug[hugresult])
-                message.channel.send(embed)
+                message.channel.send({embeds: [memberToFind]})
                 return;
         }
         }

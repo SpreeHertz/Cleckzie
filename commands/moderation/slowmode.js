@@ -30,7 +30,13 @@ message.channel.setRateLimitPerUser(milliseconds / 1000);
 message.channel.send(
     `The slowmode for this channel has been set to ${ms(milliseconds, {
         long: true }
-    )}. If it didn't work, please check if ${message.author} has permissions, or if I (the bot) has permissions to **Manage Channels.**`
+    )}.`
 
+)
+if (error) {
+ message.channel.send(`An error had occured: ${error}`)
+}
+    
+}
+}
 
-)}}

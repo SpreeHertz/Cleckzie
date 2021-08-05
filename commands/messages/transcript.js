@@ -10,7 +10,7 @@ module.exports = {
         Transcript.fetchTranscript(message, 99)
             .then((data) => {
                 const file = new MessageAttachment(data, 'msgtranscript.html')
-                message.channel.send(file)
+                message.channel.send({embeds: [embed]})
             })
     }
 }
