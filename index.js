@@ -1,23 +1,18 @@
-// Require
-const schema = require('./schema')
-require('dotenv').config()
-const fs = require('fs')
-const ms = require('ms')
-const mongoose = require('mongoose');
-const mongoCurrency = require('discord-mongo-currency');
-const { glob } = require('glob');
-const { promisify } = require('util');
-
-const globPromise = promisify(glob);
-const { Collection, Client } = require('discord.js')
-const client = new Client({ 
-    intents: 32767, 
-});
+const { Client, Collection } = require("discord.js");
 const { GiveawaysManager } = require('discord-giveaways');
-const DiscordVoice = require("discord-voice");
 const { Player } = require("discord-player");
+const fs = require('fs');
+const ms = require('ms');
+const mongoCurrency = require('discord-mongo-currency');
+require('dotenv').config()
 
-client.config = require('./config/bot')
+const client = new Client({
+    intents: 32767,
+});
+module.exports = client;
+
+// Global Variables
+client.config = require('./config.json')
 client.commands = new Collection();
 client.aliases = new Collection();
 client.snipes = new Collection();
@@ -29,9 +24,7 @@ client.player = new Player(client);
 client.filters = client.config.filters;
 client.filters = client.filters;
 
-
-// MongoDB Credentials
-
+const mongoose = require('mongoose')
 mongoose.connect(process.env.database, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -70,69 +63,10 @@ client.giveawaysManager.on("giveawayEnded", (giveaway, winners) => {
 });
 
 // Discord Voice
-const Voice = new DiscordVoice(client, process.env.database)
-client.discordVoice = Voice;
+const { VoiceManager } = require("discord-voice");
+client.voiceManager = manager;
 
-["command", "player", "event"].forEach(x => require(`./handlers/${x}`)(client));
-
-client.on("messageCreate", async (message) => {
-    if (
-        message.author.bot ||
-        !message.guild ||
-        !message.content.toLowerCase().startsWith(client.config.prefix)
-    )
-        return;
-
-    const [cmd, ...args] = message.content
-        .slice(client.config.prefix.length)
-        .trim()
-        .split(" ");
-
-    const command = client.commands.get(cmd.toLowerCase());
-
-    if (!command) return;
-    await command.run(client, message, args);
-});client.on("messageCreate", async (message) => {
-    if (
-        message.author.bot ||
-        !message.guild ||
-        !message.content.toLowerCase().startsWith(client.config.prefix)
-    )
-        return;
-
-    const [cmd, ...args] = message.content
-        .slice(client.config.prefix.length)
-        .trim()
-        .split(" ");
-
-    const command = client.commands.get(cmd.toLowerCase());
-
-    if (!command) return;
-    await command.run(client, message, args);
-});
-
-client.on("interactionCreate", async (interaction) => {
-    // Slash Command Handling
-    if (interaction.isCommand()) {
-        await interaction.defer({ ephemeral: false }).catch(() => {});
-
-        const cmd = client.slashCommands.get(interaction.commandName);
-        if (!cmd)
-            return interaction.followUp({ content: "An error has occured " });
-
-        const args = [];
-
-        for (let option of interaction.options.data) {
-            if (option.type === "SUB_COMMAND") {
-                if (option.name) args.push(option.name);
-                option.options?.forEach((x) => {
-                    if (x.value) args.push(x.value);
-                });
-            } else if (option.value) args.push(option.value);
-        }
-
-        cmd.run(client, interaction, args);
-    }
-});
+// Initializing the project
+require("./handler")(client);
 
 client.login(process.env.token);
