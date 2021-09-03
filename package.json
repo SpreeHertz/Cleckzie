@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "cleckzie",
   "version": "1.0.0",
   "description": "A multi-purpose discord bot, coded with JavaScript.",
@@ -89,4 +90,29 @@
     "url": "https://github.com/SpreeHertz/CleckziePriv/issues"
   },
   "homepage": "https://github.com/SpreeHertz/CleckziePriv#readme"
+=======
+    "name": "djs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord-giveaways": "^4.5.1",
+        "discord-mongo-currency": "^1.0.4",
+        "discord-player": "^5.0.2",
+        "discord-voice": "^2.0.3",
+        "discord.js": "^13.1.0",
+        "dotenv": "^10.0.0",
+        "fs": "^0.0.1-security",
+        "glob": "^7.1.7",
+        "mongoose": "^5.13.2",
+        "ms": "^2.1.3"
+    }
+>>>>>>> 47adea73a64ad1f1e775411a5397b773dd2b28aa
 }
