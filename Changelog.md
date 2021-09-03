@@ -29,3 +29,14 @@ Made GitHub Pages. <br>
 ### 16th June 2021
 
 Fixed https://dsc.gg/cleckzie's `invalid OAuth URI`. (Thanks to <a href="https://github.com/amanxd1"> amanxd1 </a> for reporting it)
+
+
+### v2.0.0 [9th September 2021]
+
+Started progress for rewriting to discord.js v13. <br>
+Changes will now be marked with versions. When there's a major update, a tag will be created on GitHub. <br>
+Added old files. <br>
+Config folder with the file `bot.js` is now gone. `filters.js`, `config.json`, and `env.example` will be used instead. (Will be explaining env.example later) <br>
+`README.md` has been updated. <br>
+New command handler added. <br>
+Dependabot alerts fixed. <br>
