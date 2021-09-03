@@ -40,6 +40,6 @@ Config folder with the file `bot.js` is now gone. `filters.js`, `config.json`, a
 `README.md` has been updated. <br>
 New command handler added. <br>
 Dependabot alerts fixed. <br>
-
+.
 
 
