@@ -46,6 +46,8 @@ Added ESLint to the project. <br>
 Removed unneccessary packages from [package.json](https://github.com/spreehertz/cleckzie/blob/master/package.json) <br>
 Added [chalk](https://npmjs.org/chalk) and used it in [ready.js](https://github.com/spreehertz/cleckzie/blob/master/events/ready.js) and [index.js](https://github.com/spreehertz/cleckzie/blob/master/index.js) <br>
 Fixed [ping.js](https://github.com/spreehertz/cleckzie/blob/master/commands/info/ping.js) <br>
-Added more information while doing `node .`. <br>
-Added [botinfo.js](https://github.com/spreehertz/cleckzie/blob/master/SlashCommands/info/botinfo.js) 
+Added more information while doing `node .` <br>
+Added [botinfo.js](https://github.com/spreehertz/cleckzie/blob/master/SlashCommands/info/botinfo.js) <br>
+Made all files follow ESLint rules. <br>
+
 
