@@ -5,6 +5,7 @@ const fs = require('fs');
 const ms = require('ms');
 const mongoCurrency = require('discord-mongo-currency');
 require('dotenv').config()
+const chalk = require('chalk');
 
 const client = new Client({
     intents: 32767,
@@ -28,7 +29,7 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.database, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-}).then(console.log('Connected to MongoDB.'))
+}).then(console.log(chalk.cyan('Connected to') + chalk.green(' MongoDB successfully.')))
 
 //Economy
 mongoCurrency.connect(process.env.database);
