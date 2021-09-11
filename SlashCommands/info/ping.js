@@ -19,7 +19,6 @@ module.exports = {
 
         const embed = new MessageEmbed()
         .addField("Websocket",`${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} ${client.ws.ping}ms`)
-        .addField("RoundTrip", `${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} ${client.ws.ping} ms`)
         .setColor("RANDOM")
 
 
