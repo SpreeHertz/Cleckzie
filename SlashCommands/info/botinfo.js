@@ -10,7 +10,7 @@ module.exports = {
 	type: 'CHAT_INPUT',
 	/**
      * @param {Client} client
-     * @param {Message} message
+     * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 	run: async (client, message, args) => {
