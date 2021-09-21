@@ -1,8 +1,8 @@
 const { glob } = require("glob");
 const { promisify } = require("util");
 const { Client } = require("discord.js");
-const { mongooseConnectionString } = require("../config.json");
 const mongoose = require("mongoose");
+const chalk = require('chalk');
 
 const globPromise = promisify(glob);
 
@@ -48,11 +48,14 @@ module.exports = async (client) => {
      
     });
 
-    // mongoose
-    if (!mongooseConnectionString) return;
+    // MongoDB
+    if (!process.env.database) {
+        console.log(chalk.red('Looks like you have not specified your MongoDB Connection string yet. Commands (including slash commands) will not work if you don\'t specify it.'))
+    }
 
-    mongoose.connect(mongooseConnectionString, {
+    mongoose.connect(process.env.database, {
         useFindAndModify: true,
         useUnifiedTopology: true,
-    });
+        useNewUrlParser: true
+    }).then(console.log(chalk.cyan('Connected to') + chalk.green(' MongoDB successfully.')));
 };

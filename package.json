@@ -11,6 +11,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "chalk": "^4.1.2",
         "discord.js": "^13.1.0",
         "dotenv": "^10.0.0",
         "glob": "^7.1.7",
