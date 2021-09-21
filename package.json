@@ -7,6 +7,9 @@
         "start": "node index.js",
         "test": "nodemon index.js"
     },
+    "engines": {
+         "node": "16.7.0" 
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
