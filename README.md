@@ -31,4 +31,3 @@ Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 [MrPerfectShot](https://github.com/mrperfectshot) <br>
 [amanxd1](https://github.com/amanxd1) <br>
 [GrpeApple](https://github.com/GrpeApple)
-

@@ -1,27 +1,19 @@
 {
-  "name": "cleckzie",
-  "version": "1.0.0",
-  "description": "A multi-purpose discord bot, made with JavaScript.",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@discordjs/voice": "^0.6.0",
-    "chalk": "^4.1.2",
-    "discord-giveaways": "^5.0.1",
-    "discord-mongo-currency": "^1.0.4",
-    "discord-player": "^5.1.0",
-    "discord-together": "^1.1.62",
-    "discord-voice": "^2.0.4",
-    "discord.js": "^13.1.0",
-    "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security",
-    "glob": "^7.1.7",
-    "mongoose": "^6.0.2",
-    "ms": "^2.1.3"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0"
-  }
+    "name": "cleckzie",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^13.1.0",
+        "dotenv": "^10.0.0",
+        "glob": "^7.1.7",
+        "mongoose": "^5.13.2"
+    }
 }

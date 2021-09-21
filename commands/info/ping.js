@@ -1,22 +1,17 @@
-const { Client, Message, MessageEmbed } = require('discord.js');
+const { Message, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: 'ping',
-    description: "Returns websocket ping",
-    /** 
-     * @param {Client} client 
-     * @param {Message} message 
-     * @param {String[]} args 
+    name: "ping",
+    aliases: ['p'],
+    /**
+     *
+     * @param {Client} client
+     * @param {Message} message
+     * @param {String[]} args
      */
-    run: async(client, message, args) => {
-        let circles = {
-            green: "🟢",
-            yellow: "🟡",
-            red: "🔴"
-        }
-     const pingEmbed = new MessageEmbed()
-    .addField("Websocket",`${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} ${client.ws.ping}ms`)
-    .setColor("RANDOM")
-    message.channel.send({embeds: [pingEmbed]})
-    }
+    run: async (client, message, args) => {
+        const embed = new MessageEmbed()
+        .addField('Websocket', `${client.ws.ping}ms`)
+        message.channel.send({embeds: [embed]})
+    },
 };
