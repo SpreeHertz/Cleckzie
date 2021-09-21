@@ -14,3 +14,5 @@ client.config = require("./config.json");
 require("./handler")(client);
 
 client.login(process.env.token);
+
+// test
