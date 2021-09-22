@@ -14,11 +14,16 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@discordjs/voice": "^0.6.0",
         "chalk": "^4.1.2",
+        "cpu-stat": "^2.0.1",
         "discord.js": "^13.1.0",
         "dotenv": "^10.0.0",
         "glob": "^7.1.7",
-        "mongoose": "^5.13.2"
+        "moment": "^2.29.1",
+        "moment-duration-format": "^2.3.2",
+        "mongoose": "^5.13.2",
+        "ms": "^3.0.0-canary.1"
     },
     "devDependencies": {
         "eslint": "^7.32.0"

@@ -4,7 +4,7 @@ const { Client, CommandInteraction, MessageEmbed, User, Message } = require("dis
 module.exports = {
 	name: "ping",
 	description: "Returns websocket ping",
-	type: 'CHAT_INPUT',
+	type: 1,
 	/**
      *
      * @param {Client} client
@@ -18,7 +18,7 @@ module.exports = {
 				.addField('Websocket', `${client.ws.ping}`)
 				.setTimestamp()
 				.setAuthor(User.name, User.displayAvatarURL({ dynamic: true }));
-			interaction.followUp({ embeds: [pingEmbed] });
+			interaction.reply({ embeds: [pingEmbed] });
 		}
 
 	},
