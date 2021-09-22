@@ -2,7 +2,7 @@ const { Client, Collection } = require("discord.js");
 require('dotenv').config();
 
 const client = new Client({
-    intents: 32767,
+	intents: 32767,
 });
 module.exports = client;
 
