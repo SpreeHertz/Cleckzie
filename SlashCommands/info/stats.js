@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 // Mentioning the packages
-const { Client, Message, MessageEmbed, CommandInteraction } = require('discord.js');
+const { MessageEmbed, CommandInteraction } = require('discord.js');
 const mdur = require('moment-duration-format');
 const os = require('os');
 const cpuStat = require('cpu-stat');
@@ -12,11 +12,11 @@ const moment = require('moment');
 module.exports = {
 	name: 'stats',
 	description: 'Returns statistics of the bot',
-	type: 'CHAT_INPUT',
+	type: 1,
 	/**
      * @param {Client} client
-     * @param {CommandInteraction} interaction
      * @param {Message} message
+	 * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 	run: async (client, message, args, interaction) => {
@@ -37,7 +37,6 @@ module.exports = {
 			const node = process.version;
 			const CPU = percent.toFixed(2);
 			const ping = message.createdTimestamp - message.createdTimestamp;
-
 			const circles = {
 				green: "🟢",
 				yellow: "🟡",
@@ -60,7 +59,7 @@ module.exports = {
 						value: `${client.ws.ping}ms`, inline: false })
 
 				.setTimestamp()
-				.setColor('BLURPLE')
+				.setColor('BLURPLE');
 
 			interaction.followUp({ embeds: [statsEmbed] });
 		},
