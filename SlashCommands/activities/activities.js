@@ -1,6 +1,9 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
-const { MessageEmbed, Invite } = require('discord.js');
+const { MessageEmbed, Invite, User } = require('discord.js');
 const fetch = require('node-fetch');
+const chalk = require('chalk');
+
 
 module.exports = {
 	name: 'activities',
@@ -95,7 +98,6 @@ module.exports = {
 						}, 10000);
 					});
 				}
-
 				interaction.followUp({
 					embeds: [
 						new MessageEmbed()
@@ -106,7 +108,8 @@ module.exports = {
 				}).then(m => {
 					interaction.channel.send({
 						content: `https://discord.com/invite/${invite.code}`,
-					});
+
+					}).then(console.log(chalk.yellow('[Info]') + chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
 				});
 			});
 	},
