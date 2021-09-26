@@ -13,13 +13,7 @@ module.exports = {
 	name: 'stats',
 	description: 'Returns statistics of the bot',
 	type: 1,
-	/**
-     * @param {Client} client
-     * @param {Message} message
-	 * @param {CommandInteraction} interaction
-     * @param {String[]} args
-     */
-	run: async (client, message, args, interaction) => {
+	run: async (client, interaction) => {
 		// Defining the duration
 		const duration = moment.duration(client.uptime).format(' D [days], H [hours], m [mins], s [secs]');
 		cpuStat.usagePercent(function(error, percent, seconds) {
@@ -27,7 +21,8 @@ module.exports = {
 			if (error) {
 				return console.error(error);
 			}
-			// Defining the cores, cpuModel, guilds, users, channels, usage, node, CPU, ping, and ping representation circles
+
+			// Defining the cores, cpuModel, guilds, users, channels, usage, node, CPU, and ping representation circles
 			const cores = os.cpus().length;
 			const cpuModel = os.cpus()[0].model;
 			const guilds = client.guilds.cache.size.toLocaleString();
@@ -36,14 +31,13 @@ module.exports = {
 			const usage = formatBytes(process.memoryUsage().heapUsed);
 			const node = process.version;
 			const CPU = percent.toFixed(2);
-			const ping = message.createdTimestamp - message.createdTimestamp;
 			const circles = {
 				green: "🟢",
 				yellow: "🟡",
 				red: "🔴",
 			};
 
-			// the final embed
+			// The final embed
 			const statsEmbed = new MessageEmbed()
 				.setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL({ dynamic: true })}`)
 				.addFields(

@@ -11,7 +11,7 @@ module.exports = {
 	options: [
 		{
 			name: 'mini-games',
-			description: 'choose the mini-game',
+			description: 'Choose the mini-game',
 			type: 'STRING',
 			required: true,
 			choices: [

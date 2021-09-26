@@ -13,4 +13,11 @@ client.config = require("./config.json");
 
 require("./handler")(client);
 
+// Presence
+client.once('ready', () => {
+	client.user.setActivity('Currently getting rewritten', { type: 'COMPETING' });
+	client.user.setPresence('idle');
+});
+
+
 client.login(process.env.token);
