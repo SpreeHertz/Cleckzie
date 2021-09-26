@@ -51,7 +51,7 @@ module.exports = async (client) => {
 
 	// MongoDB
 	if (!process.env.database) {
-		console.log(chalk.red('Looks like you have not specified your MongoDB Connection string yet. Commands (including slash commands) will not work if you don\'t specify it.'));
+		console.log(chalk.red('Looks like you have not specified your MongoDB Connection string in your .env file yet. Commands (including slash commands) will not work if you don\'t specify it.'));
 	}
 
 	mongoose.connect(process.env.database, {
