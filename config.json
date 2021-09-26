@@ -1,3 +1,5 @@
 {
-    "prefix": "*"
+    "prefix": "*",
+    "status": "Currently getting rewritten",
+    "presence": "idle"
 }
