@@ -55,7 +55,6 @@ module.exports = async (client) => {
 	}
 
 	mongoose.connect(process.env.database, {
-		useFindAndModify: true,
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 	}).then(console.log(chalk.cyan('Connected to') + chalk.green(' MongoDB successfully.')));
