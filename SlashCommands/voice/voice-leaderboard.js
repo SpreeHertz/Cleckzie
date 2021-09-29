@@ -24,11 +24,14 @@ module.exports = {
      * @param {String[]} args
      */
 	run: async (client, interaction, args, message) => {
+		const Guild = interaction.guild;
 		const fetchNumber = interaction.options.getNumber('top');
-		if (fetchNumber > 50) return interaction.channel.send({ content: `The bot cannot fetch more than 50 users' leaderboard. Please try a lower number.`, ephemeral: true });
+		if (fetchNumber > 30) return interaction.channel.send({ content: `The bot cannot fetch more than 50 users' leaderboard. Please try a lower number.`, ephemeral: true });
 		const embed = await voiceClient.generateLeaderboard({
 			message: message,
 			top: fetchNumber,
+			guild: Guild,
+			color: 'RANDOM',
 		});
 
 		interaction.followUp({ embeds: [embed] });

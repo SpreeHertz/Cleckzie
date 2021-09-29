@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+const { MessageActionRow, MessageButton, MessageEmbed, CommandInteraction } = require('discord.js');
 
 module.exports = {
 	name: "info",
@@ -10,7 +10,7 @@ module.exports = {
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
-	run: async (interaction, message) => {
+	run: async (client, interaction) => {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()

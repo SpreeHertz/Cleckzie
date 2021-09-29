@@ -5,6 +5,7 @@ require('dotenv').config();
 const client = new Client({
 	intents: 32767,
 });
+
 module.exports = client;
 
 
@@ -17,10 +18,12 @@ const botPresence = require('./config.json').presence;
 
 require("./handler")(client);
 
-// Presence
+
+// Presence & activity
 client.once('ready', () => {
 	client.user.setActivity(botActivity);
 	client.user.setPresence(botPresence);
 });
+
 
 client.login(process.env.token);
