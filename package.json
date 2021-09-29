@@ -8,7 +8,7 @@
         "test": "nodemon index.js"
     },
     "engines": {
-        "node": "16.7.0"
+        "node": "16.7.x"
     },
     "keywords": [],
     "author": "",
