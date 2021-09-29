@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { Discord, CommandInteraction, MessageEmbed } = require('discord.js');
+const { CommandInteraction, MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
@@ -8,11 +8,12 @@ module.exports = {
 		.setDescription("Play 8ball with Cleckzie")
 		.addStringOption((option) =>
 			option
-				.setName("question")
+				.setName('question')
 				.setDescription("What your question is")
 				.setRequired(true),
 		),
-	run: async (message, args, interaction) => {
+	run: async (args, interaction) => {
+		const fetchQuestion = interaction.options.getString('question');
 		const answers = [
 			'It is certain.',
 			'It is decidedly so.',
@@ -35,10 +36,9 @@ module.exports = {
 			'Outlook not so good.',
 			'Very doubtful.',
 		];
-		const question = args.join(' ');
 		const embed = new MessageEmbed()
 			.setTitle('🎱  The Magic 8-Ball  🎱')
-			.addField('Question', question)
+			.addField('Question', fetchQuestion)
 			.addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
 			.setColor('RANDOM');
 		interaction.followUp({ embeds: [embed] });
