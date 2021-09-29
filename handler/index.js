@@ -43,7 +43,7 @@ module.exports = async (client) => {
 		arrayOfSlashCommands.push(file);
 	});
 	client.on('ready', async () => {
-
+		// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
 		await client.application.commands.set(arrayOfSlashCommands);
 
 
