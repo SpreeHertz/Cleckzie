@@ -21,7 +21,7 @@ Check out our [Twitter](https://twitter.com/Cleckzie) too.
 
 
 ## Report issues
-Found an issue? Report it by clicking [here](https://github.com/spreehertz/cleckzie/issues). **Please note that the issues is section is ONLY for issues, not for suggestions or something else. For suggestions, use the [Discussions](https://github.com/spreehertz/cleckzie/discussions) feature.**
+Found an issue? Report it by clicking [here](https://github.com/spreehertz/cleckzie/issues). **Please note that the issues is section is ONLY for issues and the labels included in it, not for suggestions or something else. For suggestions, use the [Discussions](https://github.com/spreehertz/cleckzie/discussions) feature.**
 
 ## Cleckzie's Support Server
 Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
