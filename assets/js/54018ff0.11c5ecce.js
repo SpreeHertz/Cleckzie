@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcleckzie_docs_v_3=self.webpackChunkcleckzie_docs_v_3||[]).push([[184],{1648:function(s){s.exports=JSON.parse('{"allTagsPath":"/Cleckzie/blog/tags","slug":"/Cleckzie/blog/tags/docusaurus","name":"docusaurus","count":4,"permalink":"/Cleckzie/blog/tags/docusaurus"}')}}]);
