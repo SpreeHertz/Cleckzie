@@ -12,7 +12,8 @@ module.exports = {
 				.setDescription("Whom to hug"),
 		),
 
-	run: async (interaction, args) => {
+	run: async (args, interaction) => {
+		const targetUser = interaction.options.getUser('user');
 		// Hug gifs
 		const hug = [
 			"https://data.whicdn.com/images/221692186/original.gif",
@@ -39,9 +40,6 @@ module.exports = {
 			"https://78.media.tumblr.com/064596e2fb0101675b89d79ac41141e0/tumblr_p8g2jmxCLD1qc9mvbo1_540.gif",
 		];
 		const hugresult = Math.floor((Math.random() * hug.length));
-		// Fetching the user
-		const targetUser = interaction.options.getUser('user');
-
 		// If there is no user
 		if (!targetUser) {
 			const huggedThemself = new MessageEmbed()

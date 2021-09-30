@@ -12,8 +12,7 @@ const moment = require('moment');
 module.exports = {
 	name: 'stats',
 	description: 'Returns statistics of the bot',
-	type: 1,
-	run: async (client, interaction) => {
+	run: async (args, interaction) => {
 		// Defining the duration
 		const duration = moment.duration(client.uptime).format(' D [days], H [hours], m [mins], s [secs]');
 		cpuStat.usagePercent(function(error, percent, seconds) {

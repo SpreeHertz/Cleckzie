@@ -12,7 +12,7 @@ module.exports = {
 		.setDescription("Get a twitter user's information")
 		.addStringOption((option) =>
 			option
-				.setName("username")
+				.setName('username')
 				.setDescription("Who to lookup")
 				.setRequired(true),
 		),
@@ -20,9 +20,8 @@ module.exports = {
      *
      * @param {String[]} args
      */
-	run: async (interaction) => {
-
-		const username = interaction.options.getString("username");
+	run: async (args, interaction) => {
+		const username = interaction.options.getString('username');
 		if (!username) return interaction.followUp({ content: 'Please provide a username', ephemeral: true });
 		if (!process.env.bearer) return console.log(chalk.blueBright('[twitter.js]') + chalk.red(' You have not specified the Twitter Bearer in your .env file. This command won\'t work. '));
 		try {
