@@ -29,7 +29,8 @@
         "moment-duration-format": "^2.3.2",
         "mongoose": "^6.0.7",
         "ms": "^3.0.0-canary.1",
-        "node-superfetch": "^0.2.3"
+        "node-superfetch": "^0.2.3",
+        "winston": "^3.3.3"
     },
     "devDependencies": {
         "eslint": "^7.32.0"

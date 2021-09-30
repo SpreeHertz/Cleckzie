@@ -13,17 +13,6 @@ client.commands = new Collection();
 client.slashCommands = new Collection();
 client.config = require("./config.json");
 
-const botActivity = require('./config.json').status;
-const botPresence = require('./config.json').presence;
-
 require("./handler")(client);
-
-
-// Presence & activity
-client.once('ready', () => {
-	client.user.setActivity(botActivity);
-	client.user.setPresence(botPresence);
-});
-
 
 client.login(process.env.token);

@@ -2,3 +2,7 @@
 
 node_modules
 .env
+
+# Logging files
+activitiesLog
+readyLog.log

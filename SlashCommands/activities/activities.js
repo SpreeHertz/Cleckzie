@@ -3,7 +3,15 @@
 const { MessageEmbed, Invite, User } = require('discord.js');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
+const winston = require('winston');
 
+const logger = winston.createLogger({
+	transports: [
+		new winston.transports.Console(),
+		new winston.transports.File({ filename: 'activitiesLog' }),
+	],
+	format: winston.format.printf(log => `[${log.level.toUpperCase()}] - ${log.message}`),
+});
 
 module.exports = {
 	name: 'activities',
@@ -109,7 +117,7 @@ module.exports = {
 					interaction.channel.send({
 						content: `https://discord.com/invite/${invite.code}`,
 
-					}).then(console.log(chalk.yellow('[Info]') + chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
+					}).then(logger.log(chalk.yellow('[Info]') + chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
 				});
 			});
 	},

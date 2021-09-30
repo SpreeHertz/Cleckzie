@@ -1,13 +1,26 @@
 const client = require('../index');
 const chalk = require('chalk');
+const winston = require('winston');
+
+const botActivity = require('../config.json').status;
+const botPresence = require('../config.json').presence;
+
+// Winston logging
+const logger = winston.createLogger({
+	transports: [
+		new winston.transports.Console(),
+		new winston.transports.File({ filename: 'readyLog.log' }),
+	],
+	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
+});
+
 
 client.once('ready', () => {
-	client.user.setPresence({ activities: [{ name: 'Currently getting rewritten' }], status: 'idle' });
-	console.log(chalk.yellow(`${client.user.tag}`) + chalk.green(' is up and ready to go.') +
-    chalk.cyan('\nYou should be able to use slash commands and normal commands properly.') +
-    chalk.cyan('\nIf you are') +
-    chalk.red(' not able to see Slash Commands (/) or normal commands properly, try:') +
-    chalk.red('\n1) Restarting the terminal\n2)Be patient; just wait.'));
+	client.user.setActivity(botActivity);
+	client.user.setPresence(botPresence);
+	logger.info(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
+	logger.info(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
+	logger.info(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
 });
 
 client.on('error', () => {
