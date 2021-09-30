@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 const { MessageEmbed, Invite, User } = require('discord.js');
 const fetch = require('node-fetch');
@@ -8,9 +7,9 @@ const winston = require('winston');
 const logger = winston.createLogger({
 	transports: [
 		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'activitiesLog' }),
+		new winston.transports.File({ filename: 'activitiesLog.md' }),
 	],
-	format: winston.format.printf(log => `[${log.level.toUpperCase()}] - ${log.message}`),
+	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
 });
 
 module.exports = {
@@ -95,7 +94,7 @@ module.exports = {
 						embeds: [
 							new MessageEmbed()
 								.setTitle('**Discord-Activities**')
-								.setDescription('Unable to start activities please try again!')
+								.setDescription('Unable to start activities. Please try again.')
 								.setColor('#ff0000')
 								.setTimestamp()
 								.setFooter('This message will disappear in 10 seconds.'),
@@ -117,7 +116,7 @@ module.exports = {
 					interaction.channel.send({
 						content: `https://discord.com/invite/${invite.code}`,
 
-					}).then(logger.log(chalk.yellow('[Info]') + chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
+					}).then(logger.info(chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
 				});
 			});
 	},
