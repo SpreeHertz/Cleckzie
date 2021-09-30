@@ -42,7 +42,6 @@ module.exports = {
 			.addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
 			.setColor('RANDOM');
 		interaction.followUp({ embeds: [embed] });
-// looks like this didnt get pushed
 	},
 
 };
