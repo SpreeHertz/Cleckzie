@@ -34,7 +34,3 @@ Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 [MrPerfectShot](https://github.com/mrperfectshot) <br>
 [amanxd1](https://github.com/amanxd1) <br>
 [GrpeApple](https://github.com/GrpeApple)
-
-## 🛑 Warning
-
-We don't recommend downloading / forking the [gh-pages](https://github.com/SpreeHertz/Cleckzie/tree/gh-pages) since it's in a developmental stage ***at the moment.***
