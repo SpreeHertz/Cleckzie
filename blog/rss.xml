@@ -8,9 +8,9 @@
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[First Blog Post]]></title>
-            <link>https://spreehertz.github.io/Cleckzie/blog/first-blog-post</link>
-            <guid>first-blog-post</guid>
+            <title><![CDATA[October 1st Changelogs]]></title>
+            <link>https://spreehertz.github.io/Cleckzie/blog/October 1st Changelogs</link>
+            <guid>October 1st Changelogs</guid>
             <pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Added blogs and GitHub Pages fixed.]]></description>
         </item>

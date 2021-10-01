@@ -8,9 +8,9 @@
     <subtitle>Cleckzie Blog</subtitle>
     <icon>https://spreehertz.github.io/Cleckzie/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>first-blog-post</id>
-        <link href="https://spreehertz.github.io/Cleckzie/blog/first-blog-post"/>
+        <title type="html"><![CDATA[October 1st Changelogs]]></title>
+        <id>October 1st Changelogs</id>
+        <link href="https://spreehertz.github.io/Cleckzie/blog/October 1st Changelogs"/>
         <updated>2021-10-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Added blogs and GitHub Pages fixed.]]></summary>
         <author>
@@ -25,12 +25,8 @@
         <updated>2021-10-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Welcome to Cleckzie blogs. Changelogs will also be mentioned here.]]></summary>
         <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://github.com/yangshun</uri>
+            <name>SpreeHertz</name>
+            <uri>https://github.com/spreeehertz</uri>
         </author>
     </entry>
 </feed>
