@@ -9,7 +9,7 @@ const botPresence = require('../config.json').presence;
 const logger = winston.createLogger({
 	transports: [
 		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'readyLog.md' }),
+		new winston.transports.File({ filename: 'readyLog.log' }),
 	],
 	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
 });

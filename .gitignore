@@ -4,5 +4,6 @@ node_modules
 .env
 
 # Logging files
-activitiesLog.md
-readyLog.md
+activitiesLog.log
+readyLog.log
+antiCrashLog.log

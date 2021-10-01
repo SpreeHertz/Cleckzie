@@ -7,7 +7,7 @@ const winston = require('winston');
 const logger = winston.createLogger({
 	transports: [
 		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'activitiesLog.md' }),
+		new winston.transports.File({ filename: 'activitiesLog.log' }),
 	],
 	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
 });
