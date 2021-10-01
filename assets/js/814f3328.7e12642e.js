@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcleckzie_docs_v_3=self.webpackChunkcleckzie_docs_v_3||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"First Blog Post","permalink":"/Cleckzie/blog/first-blog-post"},{"title":"Welcome","permalink":"/Cleckzie/blog/welcome"}]}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcleckzie_docs_v_3=self.webpackChunkcleckzie_docs_v_3||[]).push([[605],{2969:function(e){e.exports=JSON.parse('{"allTagsPath":"/Cleckzie/blog/tags","slug":"/Cleckzie/blog/tags/facebook","name":"facebook","count":1,"permalink":"/Cleckzie/blog/tags/facebook"}')}}]);
