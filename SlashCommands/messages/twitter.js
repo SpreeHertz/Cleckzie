@@ -26,7 +26,7 @@ module.exports = {
 		if (!process.env.bearer) return console.log(chalk.blueBright('[twitter.js]') + chalk.red(' You have not specified the Twitter Bearer in your .env file. This command won\'t work. '));
 		try {
 			const { body } = await request.get("https://api.twitter.com/1.1/users/show.json")
-				.set({ Authorization: `Bearer ${process.env.bearer}` }).query({ screen_name: username });
+				.set({ Authorization: `Bearer ${process.env.twitter_bearer}` }).query({ screen_name: username });
 
 			const tweetEmbed = new MessageEmbed()
 				.setAuthor(`@${body.screen_name.toLowerCase()}`, body.verified ? "https://emoji.gg/assets/emoji/6817_Discord_Verifed.png" : null)
