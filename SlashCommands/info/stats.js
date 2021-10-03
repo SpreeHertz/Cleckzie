@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 // Mentioning the packages
-const { MessageEmbed, CommandInteraction } = require('discord.js');
+const { MessageEmbed, CommandInteraction, Message } = require('discord.js');
 const mdur = require('moment-duration-format');
 const os = require('os');
 const cpuStat = require('cpu-stat');
@@ -19,7 +19,8 @@ module.exports = {
 		cpuStat.usagePercent(function(error, percent, seconds) {
 			// Error handler
 			if (error) {
-				return console.error(error);
+				console.log(error);
+				interaction.followUp({ content: `An unknown error occured. ${error}` });
 			}
 
 			// Defining the cores, cpuModel, guilds, users, channels, usage, node, CPU, and ping representation circles
