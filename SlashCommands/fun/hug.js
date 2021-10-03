@@ -48,11 +48,12 @@ module.exports = {
 				.setImage('https://media3.giphy.com/media/ArLxZ4PebH2Ug/giphy.gif');
 			return interaction.followUp({ embeds: [huggedThemself] });
 		}
-		if (targetUser) {
+		else if (targetUser) {
 			const userToHug = new MessageEmbed()
-				.setColor('RANDOM')
-				.setTtile(`${interaction.user.username} gave ${targetUser.user.username} a hug. How sweet!`)
-				.setimage(hug[hugresult]);
+				.setTitle(`Hug`)
+				.setDescription(`<@${interaction.user.username}> gave ${targetUser} a hug. How sweet!`)
+				.setImage(hug[hugresult])
+				.setColor('RANDOM');
 			return interaction.followUp({ embeds: [userToHug] });
 		}
 	},
