@@ -7,6 +7,7 @@ const os = require('os');
 const cpuStat = require('cpu-stat');
 const ms = require('ms');
 const moment = require('moment');
+const client = require('../../index');
 
 // Command
 module.exports = {
