@@ -23,7 +23,7 @@ module.exports = {
 	run: async (args, interaction) => {
 		const username = interaction.options.getString('username');
 		if (!username) return interaction.followUp({ content: 'Please provide a username', ephemeral: true });
-		if (!process.env.bearer) return console.log(chalk.blueBright('[twitter.js]') + chalk.red(' You have not specified the Twitter Bearer in your .env file. This command won\'t work. '));
+		if (!process.env.twitter_bearer) return console.log(chalk.blueBright('[twitter.js]') + chalk.red(' You have not specified the Twitter Bearer in your .env file. This command won\'t work. '));
 		try {
 			const { body } = await request.get("https://api.twitter.com/1.1/users/show.json")
 				.set({ Authorization: `Bearer ${process.env.twitter_bearer}` }).query({ screen_name: username });
