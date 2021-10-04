@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcleckzie_docs_v_3=self.webpackChunkcleckzie_docs_v_3||[]).push([[707],{1661:function(e){e.exports=JSON.parse('{"allTagsPath":"/Cleckzie/blog/tags","slug":"/Cleckzie/blog/tags/changelogs","name":"changelogs","count":1,"permalink":"/Cleckzie/blog/tags/changelogs"}')}}]);

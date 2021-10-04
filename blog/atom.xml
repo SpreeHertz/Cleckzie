@@ -19,6 +19,17 @@
         </author>
     </entry>
     <entry>
+        <title type="html"><![CDATA[October 1st Changelogs]]></title>
+        <id>October 1st Changelogs</id>
+        <link href="https://spreehertz.github.io/Cleckzie/blog/October 1st Changelogs"/>
+        <updated>2021-10-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Added this website on the master README.md.]]></summary>
+        <author>
+            <name>SpreeHertz</name>
+            <uri>https://github.com/spreeehertz</uri>
+        </author>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>
         <link href="https://spreehertz.github.io/Cleckzie/blog/welcome"/>
