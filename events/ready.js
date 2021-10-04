@@ -17,7 +17,7 @@ const logger = winston.createLogger({
 
 client.once('ready', () => {
 	client.user.setPresence({ activities: [{ name: botActivity }], status: botStatus });
-	logger.info(chalk.blueBright(`${client.user.tag} is up and ready to go!`));
+	logger.info(chalk.blueBright(`${client.user.tag} is online.`));
 	logger.info(chalk.blueBright(`You should be able to use slash commands and normal commands properly.`));
 	logger.info(chalk.yellow('Restart the terminal and/or wait to register the slash commands.'));
 });
