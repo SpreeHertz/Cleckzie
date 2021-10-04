@@ -2,8 +2,8 @@ const client = require('../index');
 const chalk = require('chalk');
 const winston = require('winston');
 
-const botActivity = require('../config.json').activity;
-const botStatus = require('../config.json').status;
+const botActivity = require('../config/config.json').activity;
+const botStatus = require('../config/config.json').status;
 
 // Winston logging
 const logger = winston.createLogger({
