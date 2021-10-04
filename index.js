@@ -8,14 +8,6 @@ const client = new Client({
 
 module.exports = client;
 
-const botActivity = require('./config.json').status;
-const botPresence = require('./config.json').presence;
-
-// Presence
-client.once('ready', () => {
-	client.user.setActivity(botActivity);
-	client.user.setPresence(botPresence);
-});
 
 client.commands = new Collection();
 client.slashCommands = new Collection();
