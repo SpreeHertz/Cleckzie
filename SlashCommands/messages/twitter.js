@@ -46,9 +46,9 @@ module.exports = {
 			return interaction.followUp({ embeds: [tweetEmbed] });
 		}
 		catch (error) {
-			if (error.status === 403) return interaction.followUp({ content: "This user's account is private, or closed their account.", ephemeral: true });
-			else if (error.status === 404) return interaction.followUp({ content: ":x: Error 404: User **not found**.", ephemeral: true });
-			else return interaction.followUp({ content: "An unknown error occured.", ephemeral: true });
+			if (error.status === 403) return interaction.followUp({ content: "This user's account is **private, or closed their account.**", ephemeral: true });
+			else if (error.status === 404) return interaction.followUp({ content: `:x: "${username}" was **not found.**`, ephemeral: true });
+			else return interaction.followUp({ content: `An unknown error occured: \`${error}\``, ephemeral: true });
 		}
 	},
 };

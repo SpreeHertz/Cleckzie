@@ -4,6 +4,8 @@ const { promisify } = require('util');
 const { Client } = require('discord.js');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const guildId = require('../config/config.json');
+
 
 const globPromise = promisify(glob);
 
@@ -46,6 +48,8 @@ module.exports = async (client) => {
 		// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
 		await client.application.commands.set(arrayOfSlashCommands);
 
+		// If you want it to be only on one guild:
+		// await client.guilds.cache.get(guildId).commands.set(arrayOfSlashCommands);
 
 	});
 
