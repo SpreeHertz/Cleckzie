@@ -1,7 +1,7 @@
 {
     "name": "cleckzie",
     "version": "2.0.0",
-    "description": "",
+    "description": "A multi-purpose discord bot, made with JavaScript.",
     "main": "index.js",
     "scripts": {
         "start": "node .",
@@ -11,7 +11,7 @@
         "node": "16.7.x"
     },
     "keywords": [],
-    "author": "",
+    "author": "SpreeHertz",
     "license": "ISC",
     "dependencies": {
         "@discordjs/builders": "^0.6.0",
