@@ -5,7 +5,7 @@
 
 Cleckzie is a multi-purpose discord bot, packed with 100+ features, it won't dissapoint you!
 
-### Documention
+## Documention
 
 For documentation, cloning, and much more, click [here](https://SpreeHertz.github.io/Cleckzie).
 
