@@ -59,41 +59,6 @@ module.exports = async (client) => {
 		// const guild = await client.application.commands.set(arrayOfSlashCommands);
 		// If you wish to un-register your slash commands change the 49th line to: const guild = await client.application.commands.set([]);
 		// await client.application.commands.set(arrayOfSlashCommands); to apply slash commands globally.
-
-		await client.application.commands.set(arrayOfSlashCommands).then((cmd) => {
-			const getRoles = (commandName) => {
-				const permissions = arrayOfSlashCommands.find(x => x.name === commandName).userPermissions;
-				if (!permissions) return null;
-				return guild.roles.cache.filter(x => x.permissions.has(permissions) && !x.managed);
-			};
-			const fullPermissions = cmd.reduce((accumulator, x) => {
-				const roles = getRoles(x.name);
-				if (!roles) return accumulator;
-
-				const permissions = roles.reduce((a, v) => {
-					return [
-						...a,
-						{
-							id: v.id,
-							type: 'ROLE',
-							permissions: true,
-						},
-					];
-				}, []);
-
-				return [
-					...accumulator,
-					{
-						id: x.id,
-						permissions,
-					},
-				];
-			}, []);
-
-			client.application.commands.permissions.set({ fullPermissions });
-		});
-
-
 	});
 
 
