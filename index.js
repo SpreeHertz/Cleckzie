@@ -4,6 +4,7 @@ require('dotenv').config();
 // Note: 32767 means all intents.
 const client = new Client({
 	intents: 32767,
+	disableMentions: 'everyone',
 });
 
 module.exports = client;

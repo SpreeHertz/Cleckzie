@@ -9,3 +9,4 @@ package-lock.json
 activitiesLog.log
 readyLog.log
 antiCrashLog.log
+errorDebug.log

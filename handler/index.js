@@ -5,9 +5,18 @@ const { Client } = require('discord.js');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 const guildId = require('../config/config.json');
-
-
+const winston = require('winston');
 const globPromise = promisify(glob);
+
+
+const logger = winston.createLogger({
+	transports: [
+		new winston.transports.Console(),
+		new winston.transports.File({ filename: 'errorDebug.log' }),
+	],
+	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
+});
+
 
 /**
  * @param {Client} client
@@ -45,21 +54,63 @@ module.exports = async (client) => {
 		arrayOfSlashCommands.push(file);
 	});
 	client.on('ready', async () => {
-		// If you wish to un-register your slash commands change the line below to: await client.application.commands.set([])
-		await client.application.commands.set(arrayOfSlashCommands);
+		const guild = await client.application.commands.set(arrayOfSlashCommands);
+		// Register for all the guilds the bot is in
+		// const guild = await client.application.commands.set(arrayOfSlashCommands);
+		// If you wish to un-register your slash commands change the 49th line to: const guild = await client.application.commands.set([]);
+		// await client.application.commands.set(arrayOfSlashCommands); to apply slash commands globally.
 
-		// If you want it to be only on one guild:
-		// await client.guilds.cache.get(guildId).commands.set(arrayOfSlashCommands);
+		await client.application.commands.set(arrayOfSlashCommands).then((cmd) => {
+			const getRoles = (commandName) => {
+				const permissions = arrayOfSlashCommands.find(x => x.name === commandName).userPermissions;
+				if (!permissions) return null;
+				return guild.roles.cache.filter(x => x.permissions.has(permissions) && !x.managed);
+			};
+			const fullPermissions = cmd.reduce((accumulator, x) => {
+				const roles = getRoles(x.name);
+				if (!roles) return accumulator;
+
+				const permissions = roles.reduce((a, v) => {
+					return [
+						...a,
+						{
+							id: v.id,
+							type: 'ROLE',
+							permissions: true,
+						},
+					];
+				}, []);
+
+				return [
+					...accumulator,
+					{
+						id: x.id,
+						permissions,
+					},
+				];
+			}, []);
+
+			client.application.commands.permissions.set({ fullPermissions });
+		});
+
 
 	});
 
-	// MongoDB
-	if (!process.env.database) {
-		console.log(chalk.red('Looks like you have not specified your MongoDB Connection string in your .env file yet. Commands (including slash commands) will not work if you don\'t specify it.'));
-	}
 
+};
+
+// MongoDB
+if (!process.env.database) {
+	console.log(chalk.red('Looks like you have not specified your MongoDB Connection string in your .env file yet. Commands (including slash commands) will not work if you don\'t specify it.'));
+}
+
+try {
 	mongoose.connect(process.env.database, {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 	}).then(console.log('[info] - ' + chalk.cyan('Connected to') + chalk.green(' MongoDB successfully.')));
-};
+
+}
+catch (error) {
+	logger.error(chalk.redBright(`MongoDB connection failed.\nError ${error}`));
+}
