@@ -1,4 +1,3 @@
-
 # What to do
 Make sure that whatever you contribute works with Cleckzie's command handler (See example file [here](https://github.com/SpreeHertz/Cleckzie/blob/master/SlashCommands/fun/hug.js])).
 
