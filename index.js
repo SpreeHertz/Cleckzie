@@ -20,7 +20,7 @@ require("./handler")(client);
 // discord-xp
 const Levels = require("discord-xp");
 
-Levels.setURL(process.env.database).then(console.log(chalk.greenBright('[info] Database connected for discord-xp.')));
+Levels.setURL(process.env.database).then(console.log('[info] -' + chalk.blueBright(' Database successfully connected for leveling. (discord-xp)')));
 client.on("messageCreate", async (message) => {
 	if (!message.guild) return;
 	if (message.author.bot) return;
