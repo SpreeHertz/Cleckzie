@@ -1,0 +1,31 @@
+{
+    "error": {
+     "usage": "Used when a bot encounters an error.",   
+     "message": "Sorry, an error had occured. Please try again."   
+    },
+   "botPerms": {
+       "usage": "Used when the bot doesn't have sufficient permission(s).",
+       "message": "Please check if I have enough permissions."
+   },
+   "userPerms": {
+       "usage": "Used when the user who executed the command doesn't have sufficient permission(s).",
+       "message": "You don't have enough permissions." 
+   },
+   "botOwnerOnly": {
+       "usage": "Used when a user who isn't the owner tries to execute an bot owner only command.",
+       "message": "Hey! This command can only be executed by the owner of the bot."
+   },
+   "serverOwnerOnly": {
+       "usage": "Used when a user who isn't the owner of the server tries to execute a server owner only command.",
+       "message": "Only the server owner can execute this command."
+   },
+   "botRoleHierarchy": {
+       "usage": "Used if the bot is below the required role hierarchy.",
+       "message": "Please check my role hierarchy."
+   },
+   "userRoleHierarchy": {
+       "usage": "Used if the user who has executed the command is below the required role hierarchy. (prevents abuse)",
+       "message": "Please check your role hierarchy first."
+   }
+
+}
