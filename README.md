@@ -1,6 +1,5 @@
 # Cleckzie
 [![CodeFactor](https://www.codefactor.io/repository/github/spreehertz/cleckzie/badge)](https://www.codefactor.io/repository/github/spreehertz/cleckzie)
-![Dependencies](https://img.shields.io/david/SpreeHertz/Cleckzie)
 [![Discord](https://img.shields.io/discord/839914336834420756)](https://discord.gg/bM4BNan774)
 
 Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!
