@@ -30,3 +30,6 @@ Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 
 ## Credits
 [reconlx](https://github.com/reconlx)(v13 handler)
+
+### Note
+The `dashboard` folder doesn't do anything special, so ignore that folder *for now*.
