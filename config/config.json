@@ -9,5 +9,8 @@
     "guild": {
         "guildId": "711095894229123093",
         "description": "This is optional. Please change this to your guildId if you want this. You also need to delete some code in ready.js. Go there for more info."
+    },
+    "developers": {
+        "devId": "755826968901058682"
     }
 }
