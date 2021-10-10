@@ -73,7 +73,7 @@ try {
 	mongoose.connect(process.env.database, {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
-	}).then(console.log(chalk.grey('[info] - ') + chalk.cyan('Connected to') + chalk.green(' MongoDB successfully.')));
+	}).then(console.log(chalk.grey('[info] - ') + chalk.green('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
 
 }
 catch (error) {

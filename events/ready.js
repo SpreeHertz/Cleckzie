@@ -6,7 +6,7 @@ const botStatus = require('../config/config.json').bot.status;
 
 client.once('ready', () => {
 	client.user.setPresence({ activities: [{ name: botActivity }], status: botStatus });
-	console.log(chalk.grey('[info] -') + chalk.blueBright(` ${client.user.tag} is online.`));
-	console.log(chalk.grey('[info] -') + chalk.blueBright(` You should be able to use slash commands and normal commands properly.`));
-	console.log(chalk.grey('[info] -') + chalk.yellow(' Restart the terminal and/or wait to register the slash commands.'));
+	console.log(chalk.grey('[info] -') + chalk.yellow(` ${client.user.tag}`) + chalk.cyanBright(' is online and ready to go!'));
+	console.log(chalk.grey('[info] -') + chalk.whiteBright(` You should be able to use slash commands and normal commands properly.`));
+	console.log(chalk.grey('[info] -') + chalk.whiteBright(' Restart the terminal and/or wait to register the slash commands.'));
 });
