@@ -10,19 +10,19 @@ module.exports = {
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
-	run: async (client, interaction) => {
+	run: async (args, interaction) => {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
-					.setCustomId('repository')
 					.setLabel('Repository')
-					.setStyle('LINK'),
+					.setStyle('LINK')
+					.setURL('https://github.com/spreehertz/cleckzie'),
 			);
 
 		const embed = new MessageEmbed()
 			.setDescription("Cleckzie's links")
 			.setTimestamp()
-			.setColor('DARK_BUT_NOT_BLACK');
+			.setColor('RANDOM');
 
 		interaction.followUp({ embeds: [embed], components: [row] });
 
