@@ -29,4 +29,4 @@ Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 [GrpeApple](https://github.com/GrpeApple)
 
 ## Credits
-[reconlx](https://github.com/reconlx)'s handler.
+[reconlx](https://github.com/reconlx)(v13 handler)
