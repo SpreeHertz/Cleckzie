@@ -24,7 +24,6 @@ Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 ## Top Contributors
 
 [MrPerfectShot](https://github.com/mrperfectshot) <br>
-[korauo](https://github.com/korauo) <br>
 [GrpeApple](https://github.com/GrpeApple)
 
 ## Credits
