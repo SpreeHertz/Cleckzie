@@ -6,6 +6,5 @@ node_modules
 
 # Logging files
 activitiesLog.log
-readyLog.log
 antiCrashLog.log
 errorDebug.log
