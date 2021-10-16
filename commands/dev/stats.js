@@ -1,11 +1,8 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 // Mentioning the packages
-const { MessageEmbed, CommandInteraction, Message } = require('discord.js');
-const mdur = require('moment-duration-format');
+const { MessageEmbed } = require('discord.js');
 const os = require('os');
 const cpuStat = require('cpu-stat');
-const ms = require('ms');
 const moment = require('moment');
 const { models, connection } = require("mongoose");
 const devs = require('../../config/config.json').developers.devId;
@@ -14,7 +11,7 @@ const devs = require('../../config/config.json').developers.devId;
 module.exports = {
 	name: 'devstats',
 	description: 'Returns statistics of the bot',
-	run: async (client, message, args) => {
+	run: async (client, message) => {
 		const values = Object.values(models);
 		const totalEntries = await values.reduce(async (accumulator, model) => {
 			const counts = await model.countDocuments();
@@ -23,7 +20,7 @@ module.exports = {
 
 		// Defining the duration
 		const duration = moment.duration(client.uptime).format(' D [days], H [hours], m [mins], s [secs]');
-		cpuStat.usagePercent(function(error, percent, seconds) {
+		cpuStat.usagePercent(function(error) {
 			// Error handler
 			if (error) {
 				console.log(error);
@@ -38,10 +35,8 @@ module.exports = {
 			const cpuModel = os.cpus()[0].model;
 			const guilds = client.guilds.cache.size.toLocaleString();
 			const users = client.users.cache.size.toLocaleString();
-			const channels = client.channels.cache.size.toLocaleString();
 			const usage = formatBytes(process.memoryUsage().heapUsed);
 			const node = process.version;
-			const CPU = percent.toFixed(2);
 			const circles = {
 				green: "🟢",
 				yellow: "🟡",
@@ -66,8 +61,7 @@ module.exports = {
 				)
 
 				.setTimestamp()
-				.setColor('BLURPLE')
-				.setFooter('Stats for developers.');
+				.setColor('BLURPLE');
 
 			message.channel.send({ embeds: [statsEmbed] });
 		},
