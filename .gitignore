@@ -8,3 +8,4 @@ node_modules
 activitiesLog.log
 antiCrashLog.log
 errorDebug.log
+logs/spring.log

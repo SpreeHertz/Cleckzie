@@ -4,7 +4,6 @@
     "description": "A multi-purpose discord bot, made with JavaScript.",
     "main": "index.js",
     "scripts": {
-        "start": "node .",
         "test": "nodemon .",
         "lint": "eslint ."
     },

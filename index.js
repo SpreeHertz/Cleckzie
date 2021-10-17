@@ -1,4 +1,4 @@
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const Levels = require("discord-xp");
 const chalk = require("chalk");
 require('dotenv').config();
@@ -69,14 +69,24 @@ client.manager = new Manager({
 	.on("trackStart", (player, track) => {
 		client.channels.cache
 			.get(player.textChannel)
-			.send(`🎶 Now playing: ${track.title}`);
+			.send(`Now playing: ${track.title}`);
 	})
 	.on("queueEnd", (player) => {
 		client.channels.cache
 			.get(player.textChannel)
-			.send("Queue is over.");
-
+			.send("Queue's over.");
 		player.destroy();
 	});
+
+// nodeConnect
+client.manager.on("nodeConnect", node => console.log(chalk.grey('[info] - ') + chalk.green(`All lavalink nodes connected. (${node.options.identifier})`)));
+
+// nodeError
+client.manager.on("nodeError", (node, error) => {
+	console.log(chalk.red(`Node "${node.options.identifier}" encountered an error: ${error.message}.`));
+});
+
+// erela.js raw events
+client.on("raw", d => client.manager.updateVoiceState(d));
 
 client.login(process.env.token);
