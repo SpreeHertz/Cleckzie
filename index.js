@@ -2,6 +2,7 @@ const { Client, Collection } = require("discord.js");
 const Levels = require("discord-xp");
 const chalk = require("chalk");
 require('dotenv').config();
+const { Manager } = require('erela.js');
 
 // Note: 32767 means all intents.
 const client = new Client({
@@ -52,5 +53,30 @@ client.config = require("./config/config.json");
 
 require("./handler")(client);
 
+// erela.js
+client.manager = new Manager({
+	nodes: [{
+		host: process.env.lavalink_host,
+		port: parseInt(process.env.lavalink_port),
+		password: process.env.lavalink_pass,
+	} ],
+
+	send(id, payload) {
+		const guild = client.guilds.cache.get(id);
+		if (guild) guild.shard.send(payload);
+	},
+})
+	.on("trackStart", (player, track) => {
+		client.channels.cache
+			.get(player.textChannel)
+			.send(`🎶 Now playing: ${track.title}`);
+	})
+	.on("queueEnd", (player) => {
+		client.channels.cache
+			.get(player.textChannel)
+			.send("Queue is over.");
+
+		player.destroy();
+	});
 
 client.login(process.env.token);

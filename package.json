@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "node .",
-        "test": "nodemon ."
+        "test": "nodemon .",
+        "lint": "eslint ."
     },
     "engines": {
         "node": "16.7.x"
@@ -26,6 +27,7 @@
         "discord.js": "^13.1.0",
         "djs-voice": "^1.2.0",
         "dotenv": "^10.0.0",
+        "erela.js": "^2.3.3",
         "fs": "^0.0.1-security",
         "glob": "^7.1.7",
         "got": "^11.8.2",

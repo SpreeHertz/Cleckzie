@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const chalk = require('chalk');
 const winston = require('winston');
 
@@ -11,7 +10,7 @@ const logger = winston.createLogger({
 	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
 });
 
-module.exports = client => {
+module.exports = () => {
 	process.on('unhandledRejection', (reason, p) => {
 		logger.error(chalk.blueBright('[antiCrash.js]') + chalk.red('Unhandled rejection/crash detected.'));
 		console.log(reason, p);
