@@ -1,4 +1,4 @@
-const { Client, Collection, MessageEmbed } = require("discord.js");
+const { Client, Collection } = require("discord.js");
 const Levels = require("discord-xp");
 const chalk = require("chalk");
 require('dotenv').config();
@@ -83,7 +83,7 @@ client.manager.on("nodeConnect", node => console.log(chalk.grey('[info] - ') + c
 
 // nodeError
 client.manager.on("nodeError", (node, error) => {
-	console.log(chalk.red(`Node "${node.options.identifier}" encountered an error: ${error.message}.`));
+	console.log(chalk.red(`[error] - Node "${node.options.identifier}" encountered an error: ${error.message}.`));
 });
 
 // erela.js raw events

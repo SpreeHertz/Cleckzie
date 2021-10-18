@@ -1,2 +1,2 @@
-Worker: node .
-lavalink: java -jar Lavalink.jar
+Worker: java -jar Lavalink.jar
+node: node .
