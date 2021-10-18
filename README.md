@@ -21,6 +21,9 @@ Found an issue? Report it by clicking [here](https://github.com/spreehertz/cleck
 ## Cleckzie's Support Server
 Click [here](https://discord.gg/KCzWPGJWtk) to join the support server.
 
+## Licensing
+See [`LICENSE`](https://github.com/SpreeHertz/Cleckzie/blob/master/LICENSE)
+Please credit me and/or the people mentioned below while using this code.
 
 ## Top Contributors
 
