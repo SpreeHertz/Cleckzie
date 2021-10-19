@@ -20,7 +20,7 @@ module.exports = {
 		else {
 			const nothingToPause = new MessageEmbed()
 				.setDescription(`There's nothing music playing for me to pause.`)
-				.setColor('RED');
+				.setColor(client.colors.confused);
 			message.channel.send({ embeds: [nothingToPause] });
 		}
 	},

@@ -44,6 +44,7 @@ client.on("messageCreate", async (message) => {
 client.commands = new Collection();
 client.slashCommands = new Collection();
 client.config = require("./config/config.json");
+client.colors = require('./config/colors.json');
 
 [client.antiCrash ? "antiCrash" : null]
 	.filter(Boolean)

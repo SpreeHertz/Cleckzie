@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
 	name: "play",
 	aliases: ['p'],
@@ -9,7 +11,12 @@ module.exports = {
      */
 	run: async (client, message) => {
 		const voiceChannel = message.member.voice.channel;
-		if (!voiceChannel) return message.channel.send("Please join a voice channel first.");
+		if (!voiceChannel) {
+			const notInVoice = new MessageEmbed()
+				.setDescription(`Please join a voice channel first.`)
+				.setColor(client.colors.confused);
+			message.channel.send({ embeds: [notInVoice] });
+		}
 
 		const res = await client.manager.search(
 			message.content.slice(6),

@@ -15,14 +15,14 @@ module.exports = {
 			player.stop();
 			const stopEmbed = new MessageEmbed()
 				.setDescription(`Destroyed the player and disconnected from your voice channel!`)
-				.setColor('DARK_BUT_NOT_BLACK')
+				.setColor(client.colors.success)
 				.setTimestamp();
 			message.channel.send({ embeds: [stopEmbed] });
 		}
 		else {
 			const nothingToStop = new MessageEmbed()
 				.setDescription(`I'm not playing anything for me to stop.`)
-				.setColor('RED')
+				.setColor(client.colors.confused)
 				.setTimestamp();
 			message.channel.send({ embeds: [nothingToStop] });
 		}
