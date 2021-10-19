@@ -1,4 +1,4 @@
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const Levels = require("discord-xp");
 const chalk = require("chalk");
 require('dotenv').config();
@@ -67,16 +67,25 @@ client.manager = new Manager({
 	},
 })
 	.on("trackStart", (player, track) => {
+		const playEmbed = new MessageEmbed()
+			.setDescription(`**🎶 Now playing:** ${track.title}`)
+			.setColor('GREEN')
+			.setTimestamp();
 		client.channels.cache
 			.get(player.textChannel)
-			.send(`Now playing: ${track.title}`);
+			.send({ embeds: [playEmbed] });
 	})
 	.on("queueEnd", (player) => {
+		const queueOver = new MessageEmbed()
+			.setDescription(`The queue ended.`)
+			.setColor('RED')
+			.setTimestamp();
 		client.channels.cache
 			.get(player.textChannel)
-			.send("Queue's over.");
+			.send({ embeds: [queueOver] });
 		player.destroy();
 	});
+
 
 // nodeConnect
 client.manager.on("nodeConnect", node => console.log(chalk.grey('[info] - ') + chalk.green(`All lavalink nodes connected. (${node.options.identifier})`)));
