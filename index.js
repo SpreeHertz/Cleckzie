@@ -1,8 +1,7 @@
-const { Client, Collection, MessageEmbed } = require("discord.js");
+const { Client, Collection } = require("discord.js");
 const Levels = require("discord-xp");
 const chalk = require("chalk");
 require('dotenv').config();
-const { Manager } = require('erela.js');
 
 // Note: 32767 means all intents.
 const client = new Client({
@@ -54,49 +53,5 @@ client.colors = require('./config/colors.json');
 
 require("./handler")(client);
 
-// erela.js
-client.manager = new Manager({
-	nodes: [{
-		host: process.env.lavalink_host,
-		port: parseInt(process.env.lavalink_port),
-		password: process.env.lavalink_pass,
-	} ],
-
-	send(id, payload) {
-		const guild = client.guilds.cache.get(id);
-		if (guild) guild.shard.send(payload);
-	},
-})
-	.on("trackStart", (player, track) => {
-		const playEmbed = new MessageEmbed()
-			.setDescription(`**🎶 Now playing:** ${track.title}`)
-			.setColor('GREEN')
-			.setTimestamp();
-		client.channels.cache
-			.get(player.textChannel)
-			.send({ embeds: [playEmbed] });
-	})
-	.on("queueEnd", (player) => {
-		const queueOver = new MessageEmbed()
-			.setDescription(`The queue ended.`)
-			.setColor('RED')
-			.setTimestamp();
-		client.channels.cache
-			.get(player.textChannel)
-			.send({ embeds: [queueOver] });
-		player.destroy();
-	});
-
-
-// nodeConnect
-client.manager.on("nodeConnect", node => console.log(chalk.grey('[info] - ') + chalk.green(`All lavalink nodes connected. (${node.options.identifier})`)));
-
-// nodeError
-client.manager.on("nodeError", (node, error) => {
-	console.log(chalk.red(`[error] - Node "${node.options.identifier}" encountered an error: ${error.message}.`));
-});
-
-// erela.js raw events
-client.on("raw", d => client.manager.updateVoiceState(d));
 
 client.login(process.env.token);
