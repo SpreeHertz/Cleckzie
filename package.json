@@ -1,0 +1,48 @@
+{
+    "name": "cleckzie",
+    "version": "2.0.0",
+    "description": "A multi-purpose discord bot, made with JavaScript.",
+    "main": "index.js",
+    "scripts": {
+        "test": "nodemon .",
+        "lint": "eslint ."
+    },
+    "engines": {
+        "node": "16.7.x"
+    },
+    "keywords": [],
+    "author": "SpreeHertz",
+    "license": "ISC",
+    "dependencies": {
+        "@discordjs/builders": "^0.6.0",
+        "@discordjs/opus": "^0.5.3",
+        "@discordjs/voice": "^0.6.0",
+        "bufferutil": "^4.0.4",
+        "canvacord": "^5.2.3",
+        "chalk": "^4.1.2",
+        "common-tags": "^1.8.0",
+        "cpu-stat": "^2.0.1",
+        "discord-player": "^5.1.0",
+        "discord-voice": "^2.0.4",
+        "discord-xp": "^1.1.16",
+        "discord.js": "^13.1.0",
+        "djs-voice": "^1.2.0",
+        "dotenv": "^10.0.0",
+        "fs": "^0.0.1-security",
+        "glob": "^7.1.7",
+        "got": "^11.8.2",
+        "mathjs": "^9.5.0",
+        "moment": "^2.29.1",
+        "moment-duration-format": "^2.3.2",
+        "mongoose": "^6.0.7",
+        "ms": "^3.0.0-canary.1",
+        "node-superfetch": "^0.2.3",
+        "utf-8-validate": "^5.0.6",
+        "winston": "^3.3.3",
+        "zlib-sync": "^0.1.7"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "nodemon": "^2.0.13"
+    }
+}

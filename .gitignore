@@ -1,0 +1,12 @@
+# If you don't know what you're doing, I recommend not touching this file.
+
+# Main things
+node_modules
+.env
+
+# Logging files
+activitiesLog.log
+antiCrashLog.log
+errorDebug.log
+logs/spring.log
+logs/spring.log.2021-10-18.0.gz
