@@ -23,7 +23,7 @@
         "cpu-stat": "^2.0.1",
         "discord-voice": "^2.0.4",
         "discord-xp": "^1.1.16",
-        "discord.js": "^13.1.0",
+        "discord.js": "^13.2.0",
         "djs-voice": "^1.2.0",
         "dotenv": "^10.0.0",
         "fs": "^0.0.1-security",
