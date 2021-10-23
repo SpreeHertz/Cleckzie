@@ -3,6 +3,11 @@
     "version": "2.0.0",
     "description": "A multi-purpose discord bot, made with JavaScript.",
     "main": "index.js",
+    "private": true,
+    "bugs": {
+        "url": "https://github.com/spreehertz/cleckzie/issues"
+    },
+    "homepage": "https://github.com/spreehertz/cleckzie/#readme",
     "scripts": {
         "test": "nodemon .",
         "lint": "eslint ."
@@ -43,4 +48,5 @@
         "eslint": "^8.1.0",
         "nodemon": "^2.0.14"
     }
+    
 }
