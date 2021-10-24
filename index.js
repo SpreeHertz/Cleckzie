@@ -12,8 +12,12 @@ const client = new Client({
 module.exports = client;
 
 // discord-xp
-Levels.setURL(process.env.database).then(console.log(chalk.grey('[info] -' + chalk.cyanBright(' Database successfully connected') + chalk.magentaBright(' for messages leveling.') + chalk.yellow(' (discord-xp)'))));
-
+try {
+	Levels.setURL(process.env.database).then(console.log(chalk.grey('[info] -' + chalk.cyanBright(' Database successfully connected') + chalk.magentaBright(' for messages leveling.') + chalk.yellow(' (discord-xp)'))));
+}
+catch (error) {
+	console.log(chalk.red(`An error occurred while connecting to the database for discord-xp.\nError: ${error}`));
+}
 
 client.on("messageCreate", async (message) => {
 	if (!message.guild) return;
