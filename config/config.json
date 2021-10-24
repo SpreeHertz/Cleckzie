@@ -11,6 +11,7 @@
         "description": "This is optional. Please change this to your guildId if you want this. You also need to delete some code in ready.js. Go there for more info."
     },
     "developers": {
-        "devId": "755826968901058682"
+        "devId": "755826968901058682",
+        "description": "This is to prevent other users from executing developer-only commands. Please change this to your userId."
     }
 }
