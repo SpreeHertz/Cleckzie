@@ -6,7 +6,5 @@ node_modules
 
 # Logging files
 activitiesLog.log
-antiCrashLog.log
 errorDebug.log
-logs/spring.log
-logs/spring.log.2021-10-18.0.gz
+antiCrash-log.log
