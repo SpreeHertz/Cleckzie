@@ -19,7 +19,7 @@
     "author": "SpreeHertz",
     "license": "ISC",
     "dependencies": {
-        "@discordjs/builders": "^0.6.0",
+        "@discordjs/builders": "^0.7.0",
         "@discordjs/voice": "^0.6.0",
         "bufferutil": "^4.0.4",
         "canvacord": "^5.2.3",
