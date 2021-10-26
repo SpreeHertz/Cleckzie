@@ -52,8 +52,6 @@ module.exports = {
 					{ name: ':file_folder: Channels', value: `${channels}`, inline: false },
 					{ name: ':computer: Node Version', value: `${node}`, inline: false },
 					{ name: ':robot: CPU Usage', value: `${usage}`, inline: false },
-					{ name: ':robot: CPU Model', value: `${cpuModel}`, inline: false },
-					{ name: ':robot: CPU Cores', value: `${cores}`, inline: false },
 					{ name: `${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} Ping`,
 						value: `${client.ws.ping}ms`, inline: false })
 

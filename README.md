@@ -3,7 +3,7 @@
 [![Discord](https://img.shields.io/discord/839914336834420756)](https://discord.gg/bM4BNan774)
 [![License](https://img.shields.io/github/license/SpreeHertz/Cleckzie)](https://github.com/SpreeHertz/Cleckzie/blob/master/LICENSE)
 <div align="center">
-<a href="https://github.com/SpreeHertz/Cleckzie/stargazers"><img src="https://reporoster.com/stars/SpreeHertz/Cleckzie" /><a/>
+<a href="https://github.com/SpreeHertz/Cleckzie/stargazers"><img src="https://reporoster.com/stars/SpreeHertz/Cleckzie" /></a>
 </div>
 <br><br>
 Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!

@@ -15,5 +15,6 @@ client.slashCommands = new Collection();
 client.config = require("./config/config.json");
 client.colors = require('./config/colors.json');
 
+require("./handler")(client);
 
 client.login(process.env.token);
