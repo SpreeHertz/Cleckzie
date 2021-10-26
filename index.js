@@ -5,6 +5,7 @@ require('dotenv').config();
 const client = new Client({
 	intents: 32767,
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+	allowedMentions: { parse: ['users', 'roles'], repliedUser: true },
 });
 
 module.exports = client;
