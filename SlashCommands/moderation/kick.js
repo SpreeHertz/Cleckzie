@@ -82,11 +82,12 @@ module.exports = {
 				.setStyle('LINK')
 				.setURL('https://github.com/SpreeHertz/Cleckzie/pulls'),
 		);
-		// Kinda error handling
+		// If statements to prevent errors and abuse
 		if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.followUp({ embeds: [noMemberPerms] });
 		if (!interaction.guild.me.permissions.has('KICK_MEMBERS')) return interaction.followUp({ embeds: [bothasNoPerms] });
 		if (kickMember.roles.highest.postion >= interaction.member.roles.highest.position) return interaction.followUp({ embeds: [roleHierarchy] });
 		if (kickMember.roles.highest.position >= interaction.guild.me.roles.highest.postion) return interaction.followUp({ embeds: [botRoleHierarchy] });
+		if (kickMember === interaction.guild.me) return interaction.followUp({ content: "Don't kick me please!" });
 		// Kick function
 
 		// Prompt the user after they do /kick
