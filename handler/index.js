@@ -5,18 +5,8 @@ const { Client } = require('discord.js');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 const guildId = require('../config/config.json');
-const winston = require('winston');
 const globPromise = promisify(glob);
-
-
-const logger = winston.createLogger({
-	transports: [
-		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'errorDebug.log' }),
-	],
-	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
-});
-
+const logger = require('../logs/mongo-crash-log.json');
 
 /**
  * @param {Client} client

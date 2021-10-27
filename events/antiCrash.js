@@ -1,21 +1,21 @@
 const chalk = require('chalk');
-
+const logger = require('../logs/anti-crash-log.json');
 
 module.exports = () => {
 	process.on('unhandledRejection', (reason, p) => {
-		console.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Unhandled rejection/crash detected.'));
-		console.log(reason, p);
+		logger.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Unhandled rejection/crash detected.'));
+		logger.log(reason, p);
 	});
 	process.on("uncaughtException", (err, origin) => {
-		console.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Uncaught exception/catch detected.'));
-		console.log(err, origin);
+		logger.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Uncaught exception/catch detected.'));
+		logger.log(err, origin);
 	});
 	process.on('uncaughtExceptionMonitor', (err, origin) => {
-		console.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Uncaught exception/catch detected. (Monitor)'));
-		console.log(err, origin);
+		logger.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Uncaught exception/catch detected. (Monitor)'));
+		logger.log(err, origin);
 	});
 	process.on('multipleResolves', (type, promise, reason) => {
-		console.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Multiple resolves detected.'));
-		console.log(type, promise, reason);
+		logger.log(chalk.blueBright('[antiCrash.js]') + chalk.red('Multiple resolves detected.'));
+		logger.log(type, promise, reason);
 	});
 };

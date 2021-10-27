@@ -1,16 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
-const winston = require('winston');
-
-const logger = winston.createLogger({
-	transports: [
-		new winston.transports.Console(),
-		new winston.transports.File({ filename: 'activitiesLog.log' }),
-	],
-	format: winston.format.printf(log => `[${log.level.toLowerCase()}] - ${log.message}`),
-});
-
+const logger = require('../../logs/activities-log.json');
 module.exports = {
 	name: 'activities',
 	description: 'Collection of mini-game for voice channels!',

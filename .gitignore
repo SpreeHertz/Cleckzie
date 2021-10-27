@@ -5,6 +5,4 @@ node_modules
 .env
 
 # Logging files
-activitiesLog.log
-errorDebug.log
-antiCrash-log.log
+*logs
