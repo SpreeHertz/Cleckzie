@@ -3,7 +3,7 @@ const client = require("../index");
 client.on("interactionCreate", async (interaction) => {
 	// Slash Command Handling
 	if (interaction.isCommand()) {
-		await interaction.deferReply({ ephemeral: cmd.ephemeral ? cmd.ephemeral : false }).catch(() => {});
+		await interaction.deferReply({}).catch(() => {});
 
 		const cmd = client.slashCommands.get(interaction.commandName);
 		if (!cmd) {

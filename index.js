@@ -43,7 +43,7 @@ client.on('messageCreate', async message => {
 			client.guilds.cache.get(message.guild.id).members.cache.get(message.author.id).kick({ days: 7, reason: `Steam Scam Link\n(${message.content})` });
 		}
 		catch (error) {
-			console.log(error);
+			console.log(chalk.red(error));
 		}
 		message.channel.send({ content: `**${message.author}** was *kicked* because their account was token-grabbed due to a Steam scam link.` });
 	}
