@@ -10,7 +10,8 @@
     "homepage": "https://github.com/spreehertz/cleckzie/#readme",
     "scripts": {
         "test": "nodemon .",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "dev": "node . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss"
     },
     "engines": {
         "node": "16.7.x"
@@ -41,11 +42,11 @@
         "ms": "^3.0.0-canary.1",
         "node-superfetch": "^0.2.3",
         "utf-8-validate": "^5.0.7",
-        "winston": "^3.3.3",
         "zlib-sync": "^0.1.7"
     },
     "devDependencies": {
         "eslint": "^8.1.0",
-        "nodemon": "^2.0.14"
+        "nodemon": "^2.0.14",
+        "pino": "^7.0.5"
     }
 }

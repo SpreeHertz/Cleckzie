@@ -2,7 +2,9 @@ const { Client, Collection } = require("discord.js");
 require('dotenv').config();
 const Levels = require('discord-xp');
 const chalk = require('chalk');
-
+const pino = require('pino');
+const logger = pino();
+module.exports = logger;
 // Note: 32767 means all intents.
 const client = new Client({
 	intents: 32767,
