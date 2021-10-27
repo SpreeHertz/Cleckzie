@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-const { MessageEmbed, Invite, User } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
 const winston = require('winston');
@@ -112,7 +111,7 @@ module.exports = {
 							.setTimestamp()
 							.setColor('#ffff00'),
 					],
-				}).then(m => {
+				}).then(() => {
 					interaction.channel.send({
 						content: `https://discord.com/invite/${invite.code}`,
 
