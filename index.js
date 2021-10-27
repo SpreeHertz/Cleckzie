@@ -32,4 +32,20 @@ client.on("messageCreate", async (message) => {
 	const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
 });
 
+// preventScams
+
+client.on('messageCreate', async message => {
+	const array = require(`./json/scam.json`);
+	if (array.includes(message.content)) {
+		message.delete();
+		try {
+
+			client.guilds.cache.get(message.guild.id).members.cache.get(message.author.id).kick({ days: 7, reason: `Steam Scam Link\n(${message.content})` });
+		}
+		catch (error) {
+			console.log(error);
+		}
+		message.channel.send({ content: `**${message.author}** was *kicked* because their account was token-grabbed due to a Steam scam link.` });
+	}
+});
 client.login(process.env.token);
