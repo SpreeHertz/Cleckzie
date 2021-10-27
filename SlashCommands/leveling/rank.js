@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-const { MessageEmbed, CommandInteraction, MessageAttachment } = require('discord.js');
-const voiceClient = require('../../Client/voiceClient');
+const { MessageEmbed, MessageAttachment } = require('discord.js');
 const Levels = require('discord-xp');
 const canvacord = require('canvacord');
 
@@ -17,7 +15,7 @@ module.exports = {
 		{
 			name: 'voice',
 			description: 'Shows voice-time for a user',
-			type: 'NUMBER',
+			type: 'USER',
 			required: false,
 		},
 	],
@@ -27,7 +25,7 @@ module.exports = {
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
-	run: async (client, interaction, args, message) => {
+	run: async (client, interaction) => {
 		const fetchGuild = interaction.guild;
 		// messages (discord-xp)
 		// Rank
@@ -49,23 +47,22 @@ module.exports = {
 			.setCurrentXP(user.xp)
 			.setRequiredXP(neededXp)
 			.setLevel(user.level)
-			.setStatus("online")
+			.setStatus(user.presence.status)
 			.setProgressBar("#F69699")
 			.setBackground("IMAGE", "https://cdn.discordapp.com/attachments/790289078985818112/835892079572811837/rankcard_background.png")
 			.setUsername(target.username)
 			.setDiscriminator(target.discriminator, "#00ff6a");
 		rank.build()
 			.then(data => {
-				const attachment = new MessageAttachment(data, 'rankcard.png');
+				const rankcardAttachment = new MessageAttachment(data, 'rankcard.png');
 				// embed to be sent
 				const finalEmbed = new MessageEmbed()
 					.setAuthor(target.username, target.avatarURL({ dynamic: true }))
 					.addField('Current XP', `${user.xp}`)
 					.addField('XP Needed', `${neededXp}`)
 					.addField(`${target.username}'s Level`, `${user.level}`)
-					.setColor('RANDOM')
-					.setImage(attachment);
-				interaction.followUp({ embeds: [finalEmbed] });
+					.setColor('RANDOM');
+				interaction.followUp({ embeds: [finalEmbed], attachments: [rankcardAttachment] });
 			});
 	},
 

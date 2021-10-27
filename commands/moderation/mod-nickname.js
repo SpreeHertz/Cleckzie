@@ -1,3 +1,5 @@
+const { Permissions, GuildMember } = require('discord.js');
+
 module.exports = {
 	name: 'moderated-nickname',
 	aliases: ['moderated-nick', 'mod-nick', 'modnick'],
@@ -8,7 +10,7 @@ module.exports = {
      */
 	run: async (client, message, args) => {
 		const moderatedMember = message.mentions.members.first();
-		if (!message.author.permissions.has('MANAGE_NICKNAMES')) return;
+		if (!GuildMember.permissions.has(Permissions.FLAGS.MANAGE_NICKNAMES)) return;
 		const moderatedReason = args[1];
 		const randomID = length => Math.floor(Math.random() * Math.pow(5, length));
 		if (!moderatedMember) {
@@ -16,6 +18,7 @@ module.exports = {
 		}
 		else {
 			try {
+				// The reason will show up on the audit logs of the server.
 				moderatedMember.setNickname(`Moderated Nickname ${randomID}`, `${moderatedReason} | Executed by ${message.author}`);
 			}
 			catch (error) {

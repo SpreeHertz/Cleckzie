@@ -1,5 +1,7 @@
 const { Client, Collection } = require("discord.js");
 require('dotenv').config();
+const Levels = require('discord-xp');
+const chalk = require('chalk');
 
 // Note: 32767 means all intents.
 const client = new Client({
@@ -17,5 +19,17 @@ client.config = require("./config/config.json");
 client.colors = require('./config/colors.json');
 
 require("./handler")(client);
+
+// discord-xp
+
+Levels.setURL(process.env.database).then(console.log(chalk.grey('[info] -') + chalk.cyanBright(' Database connected for discord-xp.')));
+client.on("messageCreate", async (message) => {
+	if (!message.guild) return;
+	if (message.author.bot) return;
+
+	const randomAmountOfXp = Math.floor(Math.random() * 9) + 1;
+	// eslint-disable-next-line no-unused-vars
+	const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
+});
 
 client.login(process.env.token);

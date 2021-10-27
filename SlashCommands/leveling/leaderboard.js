@@ -35,13 +35,6 @@ module.exports = {
 		// Fetching the Leaderboard and specifying the number of people that should be shown in the leaderboard (fetched above)
 		const rawLeaderboard = await Levels.fetchLeaderboard(Guild, leaderboardInt || 10);
 
-		// If no one's in leaderboard:
-		if (rawLeaderboard.length < 1) {
-			const noUsers = new MessageEmbed()
-				.setDescription("No one's in leaderboard yet.")
-				.setColor("#FF0000");
-			return interaction.followUp({ embeds: [noUsers] });
-		}
 
 		// If leaderboardInteger is too high
 		if (leaderboardInt > 20) {
@@ -58,7 +51,7 @@ module.exports = {
 			.setAuthor(Guild.name, Guild.iconURL({ dynamic: true }))
 			.setTitle("Messages Leaderboard")
 			.setDescription(lb, lb.join("\n\n"))
-			.setColor('DARK_BUT_NOT_BLACK');
+			.setColor('RANDOM');
 		interaction.followUp({ embeds: [computedLeaderboard] });
 
 		// voice-leaderboard
