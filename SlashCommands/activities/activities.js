@@ -106,7 +106,7 @@ module.exports = {
 					interaction.channel.send({
 						content: `https://discord.com/invite/${invite.code}`,
 
-					}).then(logger.info(chalk.cyan(` ${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
+					}).then(logger.info(chalk.cyan(`${interaction.user.username}`) + chalk.green(' executed') + chalk.cyan(' SlashCommands/activities.js') + chalk.green(' in the channel') + chalk.cyan(` #${interaction.channel.name}`) + chalk.green(' on the guild') + chalk.cyan(` ${interaction.guild}.`) + chalk.green(' Choice chosen:') + chalk.cyan(` ${ApplicationId}`)));
 				});
 			});
 	},

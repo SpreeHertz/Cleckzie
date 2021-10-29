@@ -24,7 +24,7 @@ require("./handler")(client);
 
 // discord-xp
 
-Levels.setURL(process.env.database).then(console.log(chalk.grey('[info] -') + chalk.cyanBright(' Database connected for discord-xp.')));
+Levels.setURL(process.env.database).then(console.log(chalk.blueBright('[success] -') + chalk.greenBright(' Database connected for discord-xp.')));
 client.on("messageCreate", async (message) => {
 	if (!message.guild) return;
 	if (message.author.bot) return;

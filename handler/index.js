@@ -56,14 +56,14 @@ module.exports = async (client) => {
 
 // MongoDB
 if (!process.env.database) {
-	console.log(chalk.red('Looks like you have not specified your MongoDB Connection string in your .env file yet. Commands (including slash commands) will not work if you don\'t specify it.'));
+	console.log(chalk.yellow('[warn] - Looks like you have not specified your MongoDB Connection string in your .env file yet. Some commands will not work if you don\'t specify it.'));
 }
 
 try {
 	mongoose.connect(process.env.database, {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
-	}).then(console.log(chalk.grey('[info] - ') + chalk.green('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
+	}).then(console.log(chalk.blueBright('[success] - ') + chalk.greenBright('Successfully connected to') + chalk.cyanBright(' MongoDB.')));
 
 }
 catch (error) {
