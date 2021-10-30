@@ -21,7 +21,7 @@
     "license": "",
     "dependencies": {
         "@discordjs/builders": "^0.8.1",
-        "@discordjs/opus": "^0.5.3",
+        "@discordjs/opus": "^0.6.0",
         "@discordjs/voice": "^0.6.0",
         "bufferutil": "^4.0.5",
         "canvacord": "^5.2.3",
