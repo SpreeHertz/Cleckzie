@@ -20,7 +20,7 @@
     "author": "SpreeHertz",
     "license": "",
     "dependencies": {
-        "@discordjs/builders": "^0.8.1",
+        "@discordjs/builders": "^0.8.2",
         "@discordjs/opus": "^0.6.0",
         "@discordjs/voice": "^0.6.0",
         "bufferutil": "^4.0.5",
