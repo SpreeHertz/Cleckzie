@@ -49,6 +49,6 @@
     "devDependencies": {
         "eslint": "^8.1.0",
         "nodemon": "^2.0.14",
-        "pino": "^7.0.5"
+        "pino": "^7.1.0"
     }
 }
