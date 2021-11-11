@@ -22,7 +22,7 @@
     "dependencies": {
         "@discordjs/builders": "^0.8.2",
         "@discordjs/opus": "^0.6.0",
-        "@discordjs/voice": "^0.7.2",
+        "@discordjs/voice": "^0.7.3",
         "bufferutil": "^4.0.5",
         "canvacord": "^5.2.3",
         "chalk": "^4.1.2",
