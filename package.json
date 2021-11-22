@@ -10,8 +10,7 @@
     "homepage": "https://github.com/spreehertz/cleckzie/#readme",
     "scripts": {
         "test": "nodemon .",
-        "lint": "eslint .",
-        "dev": "node . | pino-pretty -i pid,hostname -t yyyy-mm-dd HH:MM:ss"
+        "lint": "eslint ."
     },
     "engines": {
         "node": "16.7.x"
@@ -48,7 +47,6 @@
     },
     "devDependencies": {
         "eslint": "^8.1.0",
-        "nodemon": "^2.0.14",
-        "pino": "^7.0.5"
+        "nodemon": "^2.0.14"
     }
 }

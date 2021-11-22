@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const chalk = require('chalk');
 const guildId = require('../config/config.json');
 const globPromise = promisify(glob);
-const logger = require('../logs/mongo-crash-log.json');
 
 /**
  * @param {Client} client
@@ -67,5 +66,5 @@ try {
 
 }
 catch (error) {
-	logger.error(chalk.redBright(`MongoDB connection failed.\nError ${error}`));
+	console.error(chalk.redBright(`MongoDB connection failed.\nError ${error}`));
 }
