@@ -27,7 +27,7 @@
         "chalk": "^5.0.0",
         "common-tags": "^1.8.2",
         "cpu-stat": "^2.0.1",
-        "discord-player": "^5.1.0",
+        "discord-player": "^5.2.0",
         "discord-voice": "^2.0.6",
         "discord-xp": "^1.1.16",
         "discord.js": "^13.3.1",
