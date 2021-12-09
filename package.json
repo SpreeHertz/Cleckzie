@@ -19,7 +19,7 @@
     "author": "SpreeHertz",
     "license": "",
     "dependencies": {
-        "@discordjs/builders": "^0.8.2",
+        "@discordjs/builders": "^0.9.0",
         "@discordjs/opus": "^0.7.0",
         "@discordjs/voice": "^0.7.5",
         "bufferutil": "^4.0.5",
@@ -27,7 +27,7 @@
         "chalk": "^4.0.0",
         "common-tags": "^1.8.2",
         "cpu-stat": "^2.0.1",
-        "discord-player": "^5.1.0",
+        "discord-player": "^5.2.0",
         "discord-voice": "^2.0.6",
         "discord-xp": "^1.1.16",
         "discord.js": "^13.3.1",
@@ -39,14 +39,14 @@
         "got": "^11.8.3",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
-        "mongoose": "^6.0.13",
+        "mongoose": "^6.1.0",
         "ms": "^3.0.0-canary.1",
         "node-superfetch": "^0.2.3",
         "utf-8-validate": "^5.0.7",
         "zlib-sync": "^0.1.7"
     },
     "devDependencies": {
-        "eslint": "^8.2.0",
+        "eslint": "^8.4.1",
         "nodemon": "^2.0.15"
     }
 }
