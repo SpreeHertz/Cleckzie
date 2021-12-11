@@ -4,5 +4,12 @@
 	"botId": "790269534141284454",
 	"guildId": "",
 
-	"comment": "Please change these values to your own."
+	"comment": "Please change these values to your own.",
+
+	"bot": {
+        "activity": "/help",
+        "status": "dnd",
+        "description": "All the above values are required. Status' available strings are: idle, dnd, invisible, online"
+    }
+
 }
