@@ -34,5 +34,5 @@ Please credit me and/or the people mentioned below while using this code.
 [GrpeApple](https://github.com/GrpeApple)
 
 ## Credits
-[reconlx](https://github.com/reconlx) (v13 handler) <br>
+[NamVr](https://github.com/NamVr) (v13 handler) <br>
 [Androz2091](https://github.com/Androz2091) (repl.it files)

@@ -1,6 +1,6 @@
 {
     "name": "cleckzie",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "A multi-purpose discord bot, made with JavaScript.",
     "main": "index.js",
     "private": true,
@@ -13,20 +13,23 @@
         "lint": "eslint ."
     },
     "engines": {
-        "node": "16.7.x"
+        "node": "16.7.x",
+        "yarn": "1.x"
     },
     "keywords": [],
     "author": "SpreeHertz",
-    "license": "",
+    "license": "GNU General Public License v3.0",
     "dependencies": {
         "@discordjs/builders": "^0.9.0",
         "@discordjs/opus": "^0.7.0",
+        "@discordjs/rest": "^0.1.0-canary.0",
         "@discordjs/voice": "^0.7.5",
         "bufferutil": "^4.0.5",
         "canvacord": "^5.2.3",
         "chalk": "^4.0.0",
         "common-tags": "^1.8.2",
         "cpu-stat": "^2.0.1",
+        "discord-api-types": "^0.25.2",
         "discord-player": "^5.2.0",
         "discord-voice": "^2.0.6",
         "discord-xp": "^1.1.16",
