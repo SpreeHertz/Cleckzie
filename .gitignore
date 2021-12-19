@@ -1,0 +1,8 @@
+# If you don't know what you're doing, I recommend not touching this file.
+
+# Main things
+node_modules
+.env
+
+# Logging files
+*logs
