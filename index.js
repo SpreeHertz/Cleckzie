@@ -49,4 +49,3 @@ client.on('messageCreate', async message => {
 	}
 });
 client.login(process.env.token);
-// Add back files (3/3)
