@@ -24,7 +24,7 @@
         "@discordjs/voice": "^0.7.5",
         "bufferutil": "^4.0.6",
         "canvacord": "^5.2.3",
-        "chalk": "^4.0.0",
+        "chalk": "^5.0.0",
         "common-tags": "^1.8.2",
         "cpu-stat": "^2.0.1",
         "discord-player": "^5.2.0",
