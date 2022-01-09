@@ -42,7 +42,7 @@
         "mongoose": "^6.1.5",
         "ms": "^3.0.0-canary.1",
         "node-superfetch": "^0.2.3",
-        "utf-8-validate": "^5.0.7",
+        "utf-8-validate": "^5.0.8",
         "zlib-sync": "^0.1.7"
     },
     "devDependencies": {
