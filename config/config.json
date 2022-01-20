@@ -1,8 +1,8 @@
 {
     "bot": {
         "prefix": "*",
-        "activity": "Currently getting rewritten",
-        "status": "idle",
+        "activity": "with commands",
+        "status": "online",
         "description": "All the above values are required. Status' available strings are: idle, dnd, invisible, online"
     },
 

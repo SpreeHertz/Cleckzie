@@ -98,7 +98,7 @@ module.exports = {
 				interaction.followUp({
 					embeds: [
 						new MessageEmbed()
-							.setDescription('Click on the link below to start your session <3')
+							.setDescription('Click on the link below to start your session.')
 							.setTimestamp()
 							.setColor('#ffff00'),
 					],
