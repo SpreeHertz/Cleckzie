@@ -8,6 +8,9 @@
 <br><br>
 Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!
 
+**⚠ Cleckzie is temporarily discontinued. The approximate ETA of when the bot will be back in development is unknown.**
+
+
 ## Documention
 
 For documentation, cloning, and much more, click [here](https://SpreeHertz.github.io/Cleckzie).
