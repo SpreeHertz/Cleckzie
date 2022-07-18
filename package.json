@@ -15,7 +15,7 @@
     "discord-player": "^5.2.2",
     "discord-voice": "^2.0.6",
     "discord-xp": "^1.1.16",
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.0.2",
     "djs-voice": "^1.2.0",
     "dotenv": "^16.0.0",
     "ffmpeg-static": "^5.0.0",
