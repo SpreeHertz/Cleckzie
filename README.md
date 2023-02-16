@@ -6,9 +6,10 @@
 <a href="https://github.com/SpreeHertz/Cleckzie/stargazers"><img src="https://reporoster.com/stars/SpreeHertz/Cleckzie" /></a>
 </div>
 <br><br>
-Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!
 
-**⚠ Cleckzie is temporarily discontinued. The approximate ETA of when the bot will be back in development is unknown.**
+### ⚠ The development of Cleckzie and the source code has been indfinitely halted.
+
+Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!
 
 
 ## Documention
