@@ -7,7 +7,7 @@
 </div>
 <br><br>
 
-### ⚠ The development of Cleckzie and the source code has been indfinitely halted.
+### ⚠ The development of Cleckzie has been indfinitely halted. This is outdated (discord.js v13). I do NOT recommend forking/cloning this.
 
 Cleckzie is a multi-purpose discord bot, with tons of categories and commands, it won't disappoint you!
 
