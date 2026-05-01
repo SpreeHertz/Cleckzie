@@ -1,0 +1,2 @@
+- [ ] remove @discordjs/builders, @discordjs/formatters, @discordjs/rest, discord-api-types and replace accordingly
+- [ ] build voice interface
