@@ -1,38 +1,64 @@
-const client = require("../index");
+const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
+const ms = require('ms');
+const client = require('..');
+const config = require('../config.json');
 
-client.on("interactionCreate", async (interaction) => {
-	// Slash Command Handling
-	if (interaction.isCommand()) {
-		await interaction.deferReply({}).catch(() => {});
+const cooldown = new Collection();
 
-		const cmd = client.slashCommands.get(interaction.commandName);
-		if (!cmd) {
-			return interaction.followUp({ content: "An error has occured." });
-		}
-
-		const args = [];
-
-		for (const option of interaction.options.data) {
-			if (option.type === "SUB_COMMAND") {
-				if (option.name) args.push(option.name);
-				option.options?.forEach((x) => {
-					if (x.value) args.push(x.value);
-				});
+client.on('interactionCreate', async interaction => {
+	const slashCommand = client.slashCommands.get(interaction.commandName);
+		if (interaction.type == 4) {
+			if(slashCommand.autocomplete) {
+				const choices = [];
+				await slashCommand.autocomplete(interaction, choices)
 			}
-			else if (option.value) {args.push(option.value);}
 		}
-		interaction.member = interaction.guild.members.cache.get(interaction.user.id,
-		);
+		if (!interaction.type == 2) return;
+	
+		if(!slashCommand) return client.slashCommands.delete(interaction.commandName);
+		try {
+			if(slashCommand.cooldown) {
+				if(cooldown.has(`slash-${slashCommand.name}${interaction.user.id}`)) return interaction.reply({ content: config.messages["COOLDOWN_MESSAGE"].replace('<duration>', ms(cooldown.get(`slash-${slashCommand.name}${interaction.user.id}`) - Date.now(), {long : true}) ) })
+				if(slashCommand.userPerms || slashCommand.botPerms) {
+					if(!interaction.memberPermissions.has(PermissionsBitField.resolve(slashCommand.userPerms || []))) {
+						const userPerms = new EmbedBuilder()
+						.setDescription(`🚫 ${interaction.user}, You don't have \`${slashCommand.userPerms}\` permissions to use this command!`)
+						.setColor('Red')
+						return interaction.reply({ embeds: [userPerms] })
+					}
+					if(!interaction.guild.members.cache.get(client.user.id).permissions.has(PermissionsBitField.resolve(slashCommand.botPerms || []))) {
+						const botPerms = new EmbedBuilder()
+						.setDescription(`🚫 ${interaction.user}, I don't have \`${slashCommand.botPerms}\` permissions to use this command!`)
+						.setColor('Red')
+						return interaction.reply({ embeds: [botPerms] })
+					}
 
-		if (!interaction.member.permissions.has(cmd.userPermissions || [])) return interaction.followUp({ content: 'You do not have permission to use this command.', ephemeral: true });
+				}
 
-		cmd.run(client, interaction, args);
-	}
+					await slashCommand.run(client, interaction);
+					cooldown.set(`slash-${slashCommand.name}${interaction.user.id}`, Date.now() + slashCommand.cooldown)
+					setTimeout(() => {
+							cooldown.delete(`slash-${slashCommand.name}${interaction.user.id}`)
+					}, slashCommand.cooldown)
+			} else {
+				if(slashCommand.userPerms || slashCommand.botPerms) {
+					if(!interaction.memberPermissions.has(PermissionsBitField.resolve(slashCommand.userPerms || []))) {
+						const userPerms = new EmbedBuilder()
+						.setDescription(`🚫 ${interaction.user}, You don't have \`${slashCommand.userPerms}\` permissions to use this command!`)
+						.setColor('Red')
+						return interaction.reply({ embeds: [userPerms] })
+					}
+					if(!interaction.guild.members.cache.get(client.user.id).permissions.has(PermissionsBitField.resolve(slashCommand.botPerms || []))) {
+						const botPerms = new EmbedBuilder()
+						.setDescription(`🚫 ${interaction.user}, I don't have \`${slashCommand.botPerms}\` permissions to use this command!`)
+						.setColor('Red')
+						return interaction.reply({ embeds: [botPerms] })
+					}
 
-	// Context Menu Handling
-	if (interaction.isContextMenu()) {
-		await interaction.deferReply();
-		const command = client.slashCommands.get(interaction.commandName);
-		if (command) command.run(client, interaction);
-	}
+				}
+					await slashCommand.run(client, interaction);
+			}
+		} catch (error) {
+				console.log(error);
+		}
 });

@@ -1,12 +1,31 @@
-const client = require('../index');
+const { ActivityType } = require('discord.js');
+const client = require('..');
 const chalk = require('chalk');
 
-const botActivity = require('../config/config.json').bot.activity;
-const botStatus = require('../config/config.json').bot.status;
+client.on("clientReady", () => {
+	const activities = [
+		{ name: `${client.guilds.cache.size} Servers`, type: ActivityType.Listening },
+		{ name: `${client.channels.cache.size} Channels`, type: ActivityType.Playing },
+		{ name: `${client.users.cache.size} Users`, type: ActivityType.Watching },
+		{ name: `Discord.js v14`, type: ActivityType.Competing }
+	];
+	const status = [
+		'online',
+		'dnd',
+		'idle'
+	];
+	let i = 0;
+	setInterval(() => {
+		if(i >= activities.length) i = 0
+		client.user.setActivity(activities[i])
+		i++;
+	}, 5000);
 
-client.on('ready', () => {
-	client.user.setPresence({ activities: [{ name: botActivity }], status: botStatus });
-	console.log(chalk.blueBright('[success] -') + chalk.yellow(` ${client.user.tag}`) + chalk.cyanBright(' is online and ready to go!'));
-	console.log(chalk.grey('[info] -') + chalk.whiteBright(` You should be able to use slash commands and normal commands properly.`));
-	console.log(chalk.grey('[info] -') + chalk.whiteBright(' Restart the terminal and/or wait to register the slash commands.'));
+	let s = 0;
+	setInterval(() => {
+		if(s >= activities.length) s = 0
+		client.user.setStatus(status[s])
+		s++;
+	}, 30000);
+	console.log(chalk.red(`Logged in as ${client.user.tag}!`))
 });

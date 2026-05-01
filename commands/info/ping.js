@@ -1,30 +1,11 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
-	name: "ping",
-	/**
-     *
-     * @param {Client} client
-     * @param {Message} message
-     * @param {String[]} args
-     */
-	run: async (client, message) => {
-		// roleColor
-		const roleColor =
-          message.guild.me.displayHexColor === "#000000" ? "#ffffff" : message.guild.me.displayHexColor;
-		// Circles
-		const circles = {
-			green: "🟢",
-			yellow: "🟡",
-			red: "🔴",
-		};
-
-		const embed = new MessageEmbed()
-			.setColor(roleColor)
-			.setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-			.addField("Websocket",
-				`${client.ws.ping <= 200 ? circles.green : client.ws.ping <= 400 ? circles.yellow : circles.red} ${client.ws.ping}ms`,
-			);
-		message.channel.send({ embeds: [embed] });
-	},
+	name: 'ping',
+	description: "Check bot's ping.",
+	cooldown: 3000,
+	userPerms: [],
+	botPerms: [],
+	run: async (client, message, args) => {
+		const msg = await message.reply('Pinging...')
+		await msg.edit(`Pong! **${client.ws.ping} ms**`)
+	}
 };
