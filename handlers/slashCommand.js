@@ -1,9 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const { PermissionsBitField } = require('discord.js');
-const { Routes } = require('discord-api-types/v9');
-const { REST } = require('@discordjs/rest')
+const { PermissionsBitField, Routes, REST } = require('discord.js');
 
 const AsciiTable = require('ascii-table');
 const table = new AsciiTable().setHeading('Slash Commands', 'Stats').setBorder('|', '=', "0", "0")
@@ -49,7 +47,7 @@ module.exports = (client) => {
 					Routes.applicationCommands(CLIENT_ID), 
 					{ body: slashCommands }
 				);
-				console.log(chalk.yellow('Slash Commands • Registered'))
+				console.log(chalk.yellow('Successfully registered slash commands.'))
 			} catch (error) {
 				console.log(error);
 			}

@@ -18,9 +18,6 @@ module.exports = {
         const embed = new EmbedBuilder()
         .setTitle(`${user.tag}'s avatar`)
         .setImage(user.displayAvatarURL({ size: 4096 }))
-        .setColor('Fuchsia')
-        .setTimestamp();
-
         const formats = ['png', 'jpg', 'jpeg', 'gif'];
         const components = [];
         formats.forEach(format => {
@@ -30,7 +27,7 @@ module.exports = {
             if (!user.avatar.startsWith('a_') && format === 'gif') return;
             components.push(
                 new ButtonBuilder()
-                .setLabel(format.toUpperCase())
+                .setLabel(format)
                 .setStyle('Link')
                 .setURL(user.displayAvatarURL(imageOptions))
             )
