@@ -107,7 +107,9 @@ module.exports = {
                         `Moved by ${interaction.user.tag}`
                     );
                     count++;
-                } catch {}
+                } catch (error) {
+                    interaction.reply({ content: `An error occured\n: ${error}` });
+                }
             }
 
             return interaction.editReply(

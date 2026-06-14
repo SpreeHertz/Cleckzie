@@ -44,12 +44,16 @@ module.exports = {
             .join('\n');
 
         const noRolesMentionedEmbed = new EmbedBuilder()
+        .setAuthor({
+            name: interaction.user.username,
+            iconURL: interaction.user.displayAvatarURL(),
+        })
             .setDescription(
-                `# Participants\n\n${members || 'No participants found.'}`
+                `# Participants (${voiceChannel.members.size})\n\n${members || 'No participants found.'}`
             )
             .setColor('Fuchsia')
             .setFooter({
-                text: `Channel ID: ${voiceChannel.id} | Number of participants: ${voiceChannel.members.size}`,
+                text: `Channel ID: ${voiceChannel.id}`,
             })
             .setTimestamp();
 
@@ -85,6 +89,10 @@ module.exports = {
         .join('\n');
 
     const roleMentionedEmbed = new EmbedBuilder()
+        .setAuthor({
+            name: interaction.user.username,
+            iconURL: interaction.user.displayAvatarURL({ extension: 'png' , size: 256}),
+        })
         .setTitle(`${role.name} role attendance`)
         .setDescription(
             `### Present in voice (${presentMembers.size})\n\n` +
@@ -92,7 +100,7 @@ module.exports = {
             `### Absent in voice (${absentMembers.size})\n\n` +
             `${absentText || 'No members absent.'}`
         )
-        .setColor(role.color || 'Fuchsia')
+        .setColor(interaction.member.displayHexColor || 'Fuchsia')
         .setFooter({
             text: `Channel ID: ${voiceChannel.id}`,
         })
