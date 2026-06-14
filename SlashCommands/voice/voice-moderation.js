@@ -1,4 +1,8 @@
-const { ApplicationCommandType, ApplicationCommandOptionType, ChannelType } = require('discord.js');
+const {
+    ApplicationCommandType,
+    ApplicationCommandOptionType,
+    ChannelType
+} = require('discord.js');
 
 module.exports = {
     name: 'voice',
@@ -54,7 +58,7 @@ module.exports = {
             description: 'Server deafen all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
             default_member_permissions: 'DeafenMembers',
-             options: [
+            options: [
                 {
                     name: 'role',
                     description: 'Only deafen members with this role',
@@ -63,12 +67,12 @@ module.exports = {
                 }
             ]
         },
-          {
+        {
             name: 'undeafenall',
             description: 'Server undeafen all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
             default_member_permissions: 'DeafenMembers',
-             options: [
+            options: [
                 {
                     name: 'role',
                     description: 'Only undeafen members with this role',
@@ -78,68 +82,99 @@ module.exports = {
             ]
         },
     ],
+
     run: async (client, interaction) => {
         const subcommand = interaction.options.getSubcommand();
         const voiceChannel = interaction.member.voice.channel;
+
         if (!voiceChannel) {
-            return interaction.reply({ content: 'You need to be in a voice channel.', ephemeral: true });
+            return interaction.reply({
+                content: 'You need to be in a voice channel.'
+            });
         }
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
 
         if (subcommand === 'moveall') {
             const target = interaction.options.getChannel('channel');
+
             let count = 0;
 
-            for (const [, member] of voiceChannel.members) {
+            for (const member of voiceChannel.members.values()) {
                 try {
-                    await member.voice.setChannel(target);
+                    await member.voice.setChannel(
+                        target,
+                        `Moved by ${interaction.user.tag}`
+                    );
                     count++;
                 } catch {}
             }
 
-            return interaction.editReply(`Moved ${count} member(s) to ${target.name}.`);
+            return interaction.editReply(
+                `Moved ${count} member(s) to ${target.name}.`
+            );
         }
 
         if (subcommand === 'muteall' || subcommand === 'unmuteall') {
             const role = interaction.options.getRole('role');
             const muting = subcommand === 'muteall';
+
             let members = [...voiceChannel.members.values()];
 
             if (role) {
-                members = members.filter(m => m.roles.cache.has(role.id));
+                members = members.filter(m =>
+                    m.roles.cache.has(role.id)
+                );
             }
 
             let count = 0;
+
             for (const member of members) {
                 try {
-                    await member.voice.setMute(muting);
+                    await member.voice.setMute(
+                        muting,
+                        `${muting ? 'Muted' : 'Unmuted'} by ${interaction.user.tag}`
+                    );
                     count++;
                 } catch {}
             }
 
-            return interaction.editReply(`${muting ? 'Muted' : 'Unmuted'} ${count} member(s)${role ? ` with role ${role.name}` : ''}.`);
+            return interaction.editReply(
+                `${muting ? 'Muted' : 'Unmuted'} ${count} member(s)${
+                    role ? ` with role ${role.name}` : ''
+                }.`
+            );
         }
 
         if (subcommand === 'deafenall' || subcommand === 'undeafenall') {
             const role = interaction.options.getRole('role');
             const deafening = subcommand === 'deafenall';
+
             let members = [...voiceChannel.members.values()];
 
             if (role) {
-                members = members.filter(m => m.roles.cache.has(role.id));
+                members = members.filter(m =>
+                    m.roles.cache.has(role.id)
+                );
             }
 
             let count = 0;
 
-            for (const [, member] of voiceChannel.members) {
+            for (const member of members) {
                 try {
-                    await member.voice.setDeaf(deafening);
+                    await member.voice.setDeaf(
+                        deafening,
+                        `${deafening ? 'Deafened' : 'Undeafened'} by ${interaction.user.tag}`
+                    );
                     count++;
                 } catch {}
             }
 
-            return interaction.editReply(`${deafening ? 'Deafened' : 'Undeafened'} ${count} member(s)${role ? ` with role ${role.name}` : ''}.`);
+            return interaction.editReply(
+                `${deafening ? 'Deafened' : 'Undeafened'} ${count} member(s)${
+                    role ? ` with role ${role.name}` : ''
+                }.`
+            );
         }
     }
 };
