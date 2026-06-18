@@ -1,6 +1,6 @@
 # Cleckzie
-> [!CAUTION]
-> Cleckzie was written in discord.js v13, which is outdated. The bot is inactive. Self-hosting or adding the bot to guilds is not recommended until the whole bot is refactored and updated.
+> [!Note]
+> The master branch contains Discord.js v13 code, which is deprecated. The bot is currently going a refactor. Self hosting this branch is not recommended for now.
 
 ## Licensing
 This project is licensed under the **GNU General Public License v3.0**. See [`LICENSE`](https://github.com/SpreeHertz/Cleckzie/blob/master/LICENSE) for more info.
