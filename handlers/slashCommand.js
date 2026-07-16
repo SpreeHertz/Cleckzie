@@ -10,7 +10,6 @@ const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 
 const rest = new REST({ version: '9' }).setToken(TOKEN);
-
 module.exports = (client) => {
 	const slashCommands = []; 
 
@@ -47,9 +46,12 @@ module.exports = (client) => {
 					Routes.applicationCommands(CLIENT_ID), 
 					{ body: slashCommands }
 				);
-				console.log(chalk.yellow('Successfully registered slash commands.'))
+				console.log(chalk.green('Successfully registered slash commands.'))
 			} catch (error) {
 				console.log(error);
 			}
 	})();
+	if (process.env.GUILD_ID) {
+	console.log(chalk.yellow(`Warning: The bot has only registered slash commands in one guild (${process.env.GUILD_ID}).\nRemove GUILD_ID in .env to register globally.`));
+}
 };

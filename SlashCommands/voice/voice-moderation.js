@@ -1,7 +1,9 @@
 const {
     ApplicationCommandType,
     ApplicationCommandOptionType,
-    ChannelType
+    ChannelType,
+    EmbedBuilder,
+    PermissionFlagsBits,
 } = require('discord.js');
 
 module.exports = {
@@ -14,7 +16,6 @@ module.exports = {
             name: 'moveall',
             description: 'Move all users in your voice channel to another',
             type: ApplicationCommandOptionType.Subcommand,
-            default_member_permissions: 'MoveMembers',
             options: [
                 {
                     name: 'channel',
@@ -29,11 +30,16 @@ module.exports = {
             name: 'muteall',
             description: 'Server mute all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
-            default_member_permissions: 'MuteMembers',
             options: [
                 {
-                    name: 'role',
+                    name: 'include_role',
                     description: 'Only mute members with this role',
+                    type: ApplicationCommandOptionType.Role,
+                    required: false,
+                },
+                {
+                    name: 'exclude_role',
+                    description: "Members with this role won't be muted",
                     type: ApplicationCommandOptionType.Role,
                     required: false,
                 }
@@ -43,11 +49,16 @@ module.exports = {
             name: 'unmuteall',
             description: 'Server unmute all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
-            default_member_permissions: 'MuteMembers',
             options: [
                 {
-                    name: 'role',
+                    name: 'include_role',
                     description: 'Only unmute members with this role',
+                    type: ApplicationCommandOptionType.Role,
+                    required: false,
+                },
+                {
+                    name: 'exclude_role',
+                    description: "Members with this role won't be unmuted",
                     type: ApplicationCommandOptionType.Role,
                     required: false,
                 }
@@ -57,11 +68,16 @@ module.exports = {
             name: 'deafenall',
             description: 'Server deafen all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
-            default_member_permissions: 'DeafenMembers',
             options: [
                 {
-                    name: 'role',
+                    name: 'include_role',
                     description: 'Only deafen members with this role',
+                    type: ApplicationCommandOptionType.Role,
+                    required: false,
+                },
+                {
+                    name: 'exclude_role',
+                    description: "Members with this role won't be deafened",
                     type: ApplicationCommandOptionType.Role,
                     required: false,
                 }
@@ -71,11 +87,16 @@ module.exports = {
             name: 'undeafenall',
             description: 'Server undeafen all users in your voice channel',
             type: ApplicationCommandOptionType.Subcommand,
-            default_member_permissions: 'DeafenMembers',
             options: [
                 {
-                    name: 'role',
+                    name: 'include_role',
                     description: 'Only undeafen members with this role',
+                    type: ApplicationCommandOptionType.Role,
+                    required: false,
+                },
+                {
+                    name: 'exclude_role',
+                    description: "Members with this role won't be undeafened",
                     type: ApplicationCommandOptionType.Role,
                     required: false,
                 }
@@ -86,19 +107,42 @@ module.exports = {
     run: async (client, interaction) => {
         const subcommand = interaction.options.getSubcommand();
         const voiceChannel = interaction.member.voice.channel;
-
         if (!voiceChannel) {
             return interaction.reply({
-                content: 'You need to be in a voice channel.'
+                content: 'You need to be in a voice channel.',
+                ephemeral: true,
             });
         }
 
         await interaction.deferReply();
 
+        const me = interaction.guild.members.me;
+        const embed = new EmbedBuilder()
+        const colors = {
+            'success': 0x57F287,
+            'error': 0xED4245,
+            'info': 0x5865F2
+        }
+        function updatedEmbed(description, color) {
+            return embed.setDescription(description).setColor(color);
+        }
         if (subcommand === 'moveall') {
+            if (!interaction.member.permissions.has(PermissionFlagsBits.MoveMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('You do not have permission to move members.', colors.error)] });
+            }
+
+            if (!me.permissions.has(PermissionFlagsBits.MoveMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('I do not have permission to move members.', colors.error)] });
+            }
+
             const target = interaction.options.getChannel('channel');
 
+            if (target.id === voiceChannel.id) {
+                return interaction.editReply({ embeds: [updatedEmbed('Destination channel cannot be the same as your current channel.', colors.error)] });
+            }
+
             let count = 0;
+            let failed = 0;
 
             for (const member of voiceChannel.members.values()) {
                 try {
@@ -106,30 +150,59 @@ module.exports = {
                         target,
                         `Moved by ${interaction.user.tag}`
                     );
+
                     count++;
-                } catch (error) {
-                    interaction.reply({ content: `An error occured\n: ${error}` });
+                } catch {
+                    failed++;
                 }
             }
-
-            return interaction.editReply(
-                `Moved ${count} member(s) to ${target.name}.`
+            if (count === 0) {
+                return interaction.editReply({ embeds: [updatedEmbed(`No members were moved.`, colors.info)] }
+                );
+            }
+            let memberString = count === 1 ? "member" : "members";
+            return interaction.editReply({ embeds: [updatedEmbed(`✅ Moved ${count} ${memberString} in ${voiceChannel}${failed ? ` (${failed} failed)` : ''}.`, colors.success)] }
             );
         }
 
         if (subcommand === 'muteall' || subcommand === 'unmuteall') {
-            const role = interaction.options.getRole('role');
+            if (!interaction.member.permissions.has(PermissionFlagsBits.MuteMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('You do not have permission to mute members.', colors.error)] });
+            }
+
+            if (!me.permissions.has(PermissionFlagsBits.MuteMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('I do not have permission to mute members.', colors.error)] });
+            }
+
+            const includeRole = interaction.options.getRole('include_role');
+            const excludeRole = interaction.options.getRole('exclude_role');
+
+            if (
+                includeRole &&
+                excludeRole &&
+                includeRole.id === excludeRole.id
+            ) {
+                return interaction.editReply({ embeds: [updatedEmbed('Include role and exclude role cannot be the same.', colors.error)] });
+            }
+
             const muting = subcommand === 'muteall';
 
             let members = [...voiceChannel.members.values()];
 
-            if (role) {
-                members = members.filter(m =>
-                    m.roles.cache.has(role.id)
+            if (includeRole) {
+                members = members.filter(member =>
+                    member.roles.cache.has(includeRole.id)
+                );
+            }
+
+            if (excludeRole) {
+                members = members.filter(member =>
+                    !member.roles.cache.has(excludeRole.id)
                 );
             }
 
             let count = 0;
+            let failed = 0;
 
             for (const member of members) {
                 try {
@@ -137,30 +210,57 @@ module.exports = {
                         muting,
                         `${muting ? 'Muted' : 'Unmuted'} by ${interaction.user.tag}`
                     );
+
                     count++;
-                } catch {}
+                } catch {
+                    failed++;
+                }
             }
 
-            return interaction.editReply(
-                `${muting ? 'Muted' : 'Unmuted'} ${count} member(s)${
-                    role ? ` with role ${role.name}` : ''
-                }.`
+            let memberString = count === 1 ? "member" : "members";
+
+            return interaction.editReply({ embeds: [updatedEmbed(`✅ ${muting ? 'Muted' : 'Unmuted'} ${count} ${memberString} in ${voiceChannel}${failed ? ` (${failed} failed)` : ''}.`, colors.success)] }
             );
         }
 
         if (subcommand === 'deafenall' || subcommand === 'undeafenall') {
-            const role = interaction.options.getRole('role');
+            if (!interaction.member.permissions.has(PermissionFlagsBits.DeafenMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('You do not have permission to deafen members.', colors.error)] });
+            }
+
+            if (!me.permissions.has(PermissionFlagsBits.DeafenMembers)) {
+                return interaction.editReply({ embeds: [updatedEmbed('I do not have permission to deafen members.', colors.error)] });
+            }
+
+            const includeRole = interaction.options.getRole('include_role');
+            const excludeRole = interaction.options.getRole('exclude_role');
+
+            if (
+                includeRole &&
+                excludeRole &&
+                includeRole.id === excludeRole.id
+            ) {
+                return interaction.editReply({ embeds: [updatedEmbed('Include role and exclude role cannot be the same.', colors.error)] });
+            }
+
             const deafening = subcommand === 'deafenall';
 
             let members = [...voiceChannel.members.values()];
 
-            if (role) {
-                members = members.filter(m =>
-                    m.roles.cache.has(role.id)
+            if (includeRole) {
+                members = members.filter(member =>
+                    member.roles.cache.has(includeRole.id)
+                );
+            }
+
+            if (excludeRole) {
+                members = members.filter(member =>
+                    !member.roles.cache.has(excludeRole.id)
                 );
             }
 
             let count = 0;
+            let failed = 0;
 
             for (const member of members) {
                 try {
@@ -168,15 +268,18 @@ module.exports = {
                         deafening,
                         `${deafening ? 'Deafened' : 'Undeafened'} by ${interaction.user.tag}`
                     );
+
                     count++;
-                } catch {}
+                } catch {
+                    failed++;
+                }
             }
 
-            return interaction.editReply(
-                `${deafening ? 'Deafened' : 'Undeafened'} ${count} member(s)${
-                    role ? ` with role ${role.name}` : ''
-                }.`
+            let memberString = count === 1 ? "member" : "members";
+
+            return interaction.editReply({ embeds: [updatedEmbed(`✅ ${deafening ? 'Deafened' : 'Undeafened'} ${count} ${memberString} in ${voiceChannel}${failed ? ` (${failed} failed)` : ''}.`, colors.success)] }
             );
         }
-    }
+    },
 };
+
